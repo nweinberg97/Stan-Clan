@@ -40,27 +40,29 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15p
 button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;text-align:inherit}
 button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
 
-.wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:48px;align-items:start}
-.tour{display:flex;flex-direction:column;gap:22px;min-width:0;position:sticky;top:20px}
+.topnav{max-width:1160px;margin:0 auto 8px}
+.topnav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.topnav .for{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);font-weight:500}
+.topnav .for img{height:22px;width:auto}
+.wrap{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:clamp(48px,7vw,110px);align-items:start}
+.story{min-width:0}
+.sec{min-height:82vh;display:flex;flex-direction:column;justify-content:center;gap:20px;padding-block:72px;max-width:600px}
+.sec.hero{min-height:calc(100vh - 140px);padding-block:40px}
+.sec.foot-note{min-height:0;padding-block:40px 20px}
+.scroll-hint{font-size:14px;color:var(--muted);margin:8px 0 0;display:flex;align-items:center;gap:10px}
+.scroll-hint::before{content:"";width:22px;height:1.5px;background:var(--purple);display:block}
 .eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)}
-.tour h1{font-family:var(--display);font-weight:800;font-size:clamp(32px,4.2vw,48px);line-height:1.02;margin:6px 0 0;text-wrap:balance}
-.tour h1 span{color:var(--purple)}
-.lede{margin:10px 0 0;color:var(--muted);font-size:16.5px;max-width:58ch}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,5.2vw,66px);line-height:1;margin:0;letter-spacing:-.025em;text-wrap:balance}
+.hero h1 span{color:var(--purple)}
+.lede{margin:0;color:var(--muted);font-size:20px;line-height:1.5;max-width:46ch}
 
-.chapters{display:flex;flex-wrap:wrap;gap:6px}
-.chap{padding:7px 12px;border-radius:999px;font-size:13px;font-weight:700;background:var(--surface);border:1.5px solid var(--line);display:flex;gap:6px;align-items:center}
-.chap .n{font-family:var(--display);font-size:11px;color:var(--muted)}
-.chap:hover{border-color:var(--purple)}
-.chap.on{background:var(--purple);border-color:var(--purple);color:var(--on-purple)}
-.chap.on .n{color:rgba(255,255,255,.75)}
 
-.panel{background:var(--surface);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:16px;min-height:340px}
-.panel h2{font-family:var(--display);font-weight:800;font-size:clamp(22px,2.4vw,28px);line-height:1.15;margin:0;text-wrap:balance}
-.panel h2 em{color:var(--purple)}
-.panel p{margin:0;color:var(--muted);max-width:62ch}
-.panel .src{font-size:12.5px}
+.sec h2{font-family:var(--display);font-weight:800;font-size:clamp(28px,3.2vw,40px);line-height:1.08;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.sec h2 em{color:var(--purple)}
+.sec p{margin:0;color:var(--muted);max-width:62ch}
+.sec .src{font-size:12.5px}
 .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
-.stat{background:var(--bg);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:4px}
+.stat{background:var(--surface);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:4px}
 .stat b{font-family:var(--display);font-weight:800;font-size:30px;color:var(--purple);line-height:1;font-variant-numeric:tabular-nums}
 .stat span{font-size:13px;line-height:1.35}
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -71,27 +73,27 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
 .duo b{font-family:var(--display);font-size:19px}
 .duo span{font-size:13.5px;line-height:1.4}
 .feats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.feat{background:var(--bg);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:3px}
+.feat{background:var(--surface);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:3px}
 .feat b{font-size:14.5px}
 .feat span{font-size:13px;color:var(--muted);line-height:1.4}
 .cmp{display:flex;flex-direction:column;gap:8px}
-.cmp>div{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:12px 14px;border-radius:12px;background:var(--bg);font-size:13.5px;align-items:center}
+.cmp>div{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:12px 14px;border-radius:12px;background:var(--surface);font-size:13.5px;align-items:center}
 .cmp b{font-family:var(--display)}
 .cmp .us{background:var(--ink);color:var(--bg)}
 .cmp .us b{color:var(--teal)}
 .pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.pill{background:var(--bg);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:2px;border:2px solid transparent}
+.pill{background:var(--surface);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:2px;border:2px solid transparent}
 .pill:hover{border-color:var(--purple)}
 .pill.us{background:var(--purple);color:var(--on-purple)}
 .pill small{font-family:var(--display);font-size:11px;opacity:.7}
 .pill b{font-family:var(--display);font-size:17px}
 .pill span{font-size:13px;opacity:.85}
 .ship{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px;counter-reset:s}
-.ship li{background:var(--bg);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
+.ship li{background:var(--surface);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
 .ship li b{color:var(--ink);font-size:14.5px;display:flex;gap:8px;align-items:center}
 .ship li b::before{counter-increment:s;content:counter(s);width:22px;height:22px;border-radius:50%;background:var(--teal);color:var(--teal-ink);font-family:var(--display);font-size:11px;display:grid;place-items:center;flex:none}
 .quote{border-radius:14px;background:var(--ink);color:var(--bg);padding:16px;font-family:var(--display);font-weight:700;font-size:16px;line-height:1.3}
-.panel-foot{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-top:auto;padding-top:6px}
+.sec-foot{display:flex;gap:10px;align-items:center;margin-top:6px}
 .try{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:var(--purple);color:var(--on-purple);font-weight:700;font-size:13.5px}
 .try::after{content:"→"}
 .nextprev{display:flex;gap:6px}
@@ -101,7 +103,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
 .disclaimer{font-size:12.5px;color:var(--muted)}
 
 /* Phone */
-.phone-col{display:flex;flex-direction:column;gap:12px;align-items:center}
+.phone-col{display:flex;flex-direction:column;gap:12px;align-items:center;position:sticky;top:max(20px,calc(50vh - 420px))}
 .hint{font-size:12.5px;color:var(--muted);text-align:center;display:flex;gap:10px;align-items:center}
 .hint button{color:var(--purple);font-weight:700;text-decoration:underline;text-underline-offset:3px}
 .phone{width:min(390px,100%);height:800px;border-radius:52px;background:var(--frame);padding:12px;box-shadow:0 30px 60px -20px rgba(30,20,90,.35)}
@@ -282,8 +284,14 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
 
 @media (max-width:960px){
   .wrap{grid-template-columns:minmax(0,1fr);gap:28px}
-  .tour{position:static}
-  .phone-col{order:2}
+  .phone-col{position:static;order:2;margin-bottom:24px}
+  .story{display:contents}
+  .sec.hero{order:1}
+  #flow{order:3}
+  .sec.foot-note{order:4}
+  .scroll-hint{display:none}
+  .sec{min-height:0;padding-block:44px;max-width:none}
+  .sec.hero{min-height:0}
 }
 @media (max-width:620px){
   .stats{grid-template-columns:1fr 1fr}
@@ -303,24 +311,23 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
 <body>
 
 
+<header class="topnav"><div class="topnav-in">
+  <span class="clan-lockup"><span class="cm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#6355FF"/><path d="M42.66 23.30A13 13 0 1 0 42.66 40.70" fill="none" stroke="#fff" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 19v-6M33 45v6" fill="none" stroke="#fff" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="wm">Stan <b>Clan</b></span></span>
+  <span class="for">A concept for <img src="assets/stan-logo.png" alt="Stan"></span>
+</div></header>
 <div class="wrap">
-  <section class="tour" aria-label="Deck tour">
-    <div class="brandbar">
-      <img class="stan-logo" src="assets/stan-logo.png" alt="Stan">
-      <span class="x" aria-hidden="true">+</span>
-      <span class="clan-lockup"><span class="cm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#6355FF"/><path d="M42.66 23.30A13 13 0 1 0 42.66 40.70" fill="none" stroke="#fff" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 19v-6M33 45v6" fill="none" stroke="#fff" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="wm">Stan <b>Clan</b></span></span>
-    </div>
-    <div>
+  <main class="story">
+    <section class="sec hero">
       <div class="eyebrow">A working prototype</div>
       <h1>What if everyone using Stan had a <span>Launchpad?</span></h1>
-      <p class="lede">Launchpad gives 30 teams 16 days with founders at their exact stage. Clan gives every creator on Stan a small group of peers like that, matched automatically and live whenever they need it. Step through the deck, or just use the phone.</p>
-    </div>
-    <nav class="chapters" id="chapters" aria-label="Chapters"></nav>
-    <article class="panel" id="panel" aria-live="polite"></article>
-    <p class="disclaimer"><strong style="color:var(--ink)">Why I made this:</strong> I&#39;m sharing the idea because I think it would be really cool if Stan built it. No ask, no strings.<br><br>Independent concept by Nitai Weinberg, inspired by Launchpad. Not an official Stan product. Every person, message and number in the phone is invented for the demo. Photos and headshots from <a href="https://unsplash.com" style="color:inherit">Unsplash</a>, used under the Unsplash License.</p>
-  </section>
+      <p class="lede">Launchpad gives 30 teams peers at their exact stage. Stan Clan gives that to every creator on Stan.</p>
+      <p class="scroll-hint">Scroll to walk through the idea. The phone follows along, and everything on it is tappable.</p>
+    </section>
+    <div id="flow"></div>
+    <footer class="sec foot-note"><p class="disclaimer"><strong style="color:var(--ink)">Why I made this:</strong> I&#39;m sharing the idea because I think it would be really cool if Stan built it. No ask, no strings.<br><br>Independent concept by Nitai Weinberg, inspired by Launchpad. Not an official Stan product. Every person, message and number in the phone is invented for the demo. Photos and headshots from <a href="https://unsplash.com" style="color:inherit">Unsplash</a>, used under the Unsplash License.</p></footer>
+  </main>
 
-  <div class="phone-col">
+  <aside class="phone-col">
     <div class="phone" aria-label="Stan Clan prototype">
       <div class="host" id="host">
 
@@ -467,8 +474,8 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
         <div class="toast" id="toast" role="status"></div>
       </div>
     </div>
-    <div class="hint">Everything on the phone is tappable. <button id="restart">Start over</button></div>
-  </div>
+    <div class="hint"><button id="restart">Start over</button></div>
+  </aside>
 </div>
 
 <script>
@@ -589,7 +596,7 @@ function chips(options, onPick){
 function startOnboarding(){
   clear(timers); answered = false; feed.innerHTML = '';
   $('#find').disabled = true; $('#find').textContent = 'Answer both to continue';
-  history = []; screen = 'onboard'; go('onboard', {noHistory:true, noSync:!startOnboarding.sync}); history = [];
+  history = []; screen = 'onboard'; go('onboard', {noHistory:true}); history = [];
   add('<div class="msg bot">Hey! Let\'s find people building the same kind of thing as you. What\'s your niche?</div>');
   chips(Object.entries(NICHES).map(([k,v]) => [k, v.label]), (v, l) => {
     niche = v; add(`<div class="msg me">${esc(l)}</div>`);
@@ -797,7 +804,7 @@ $$('[data-back]').forEach(b => b.addEventListener('click', back));
 $$('[data-tab]').forEach(b => b.addEventListener('click', () => go(b.dataset.tab)));
 $$('[data-go]').forEach(b => b.addEventListener('click', () => { inRoom = null; go(b.dataset.go); }));
 $$('[data-toast]').forEach(b => b.addEventListener('click', () => toast(b.dataset.toast)));
-$('#restart').addEventListener('click', () => { winsAdded = []; claps = {}; joined = new Set(['$0–1K/mo Club','First Product Launch','Weeknight Builders']); setChapter(0, false); startOnboarding(); });
+$('#restart').addEventListener('click', () => { winsAdded = []; claps = {}; joined = new Set(['$0–1K/mo Club','First Product Launch','Weeknight Builders']); lastDriven = null; startOnboarding(); window.scrollTo({top:0,behavior:'smooth'}); });
 
 /* ---------------- Deck tour ---------------- */
 const CH = [
@@ -879,40 +886,28 @@ const CH = [
     </ol>
     <div class="quote">Features get copied. Belonging doesn't. Retention is won with another reason to stay.</div>`}
 ];
-const SCREEN_CH = {onboard:1, match:2, home:3, room:4, dir:5, clan:5, stanley:6, store:6};
-let chIdx = 0;
-function renderChapters(){
-  $('#chapters').innerHTML = CH.map((c,i) => `<button class="chap${i===chIdx?' on':''}" data-ch="${i}" aria-current="${i===chIdx}"><span class="n">${i+1}</span>${esc(c.k)}</button>`).join('');
-  $$('#chapters [data-ch]').forEach(b => b.addEventListener('click', () => setChapter(+b.dataset.ch, true)));
-}
-function setChapter(i, drive){
-  chIdx = i; renderChapters();
-  const c = CH[i];
-  $('#panel').innerHTML = c.html + `<div class="panel-foot">${c.screen ? `<button class="try" id="try">${esc(c.cta)}</button>` : '<span></span>'}<div class="nextprev"><button class="np" id="prev" ${i===0?'disabled':''}>Back</button><button class="np" id="next" ${i===CH.length-1?'disabled':''}>Next</button></div></div>`;
-  $('#prev').addEventListener('click', () => setChapter(chIdx-1, true));
-  $('#next').addEventListener('click', () => setChapter(chIdx+1, true));
-  if (c.screen) $('#try').addEventListener('click', () => driveTo(c.screen));
-  $$('#panel [data-pgo]').forEach(b => b.addEventListener('click', () => driveTo(b.dataset.pgo)));
-  if (drive && c.screen) driveTo(c.screen);
+let lastTouch = 0, lastDriven = null;
+$('#host').addEventListener('pointerdown', () => { lastTouch = Date.now(); });
+function renderFlow(){
+  $('#flow').innerHTML = CH.map((c,i) => `<section class="sec" data-i="${i}"${c.screen?` data-screen="${c.screen}"`:''}>${c.html}${c.screen?`<div class="sec-foot"><button class="try" data-try="${c.screen}">${esc(c.cta)}</button></div>`:''}</section>`).join('');
+  $$('#flow [data-try]').forEach(b => b.addEventListener('click', () => { lastDriven = b.dataset.try; driveTo(b.dataset.try); }));
+  $$('#flow [data-pgo]').forEach(b => b.addEventListener('click', () => driveTo(b.dataset.pgo)));
 }
 function driveTo(s){
-  if (s === 'onboard'){ startOnboarding.sync = true; startOnboarding(); startOnboarding.sync = false; return; }
-  if (!answered){ answered = true; }
-  inRoom = null; go(s);
+  if (s === 'onboard'){ startOnboarding(); return; }
+  answered = true; inRoom = null; go(s);
 }
-let syncing = false;
-function syncChapter(s){
-  const i = SCREEN_CH[s];
-  if (i == null || i === chIdx) return;
-  chIdx = i; renderChapters();
-  const c = CH[i];
-  // update panel without re-driving the phone
-  const keep = drive => setChapter(i, false);
-  keep();
+function syncChapter(){}
+renderFlow();
+if ('IntersectionObserver' in window && window.matchMedia('(min-width: 961px)').matches){
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const scr = e.target.dataset.screen;
+    if (!scr || scr === lastDriven || Date.now() - lastTouch < 5000) return;
+    lastDriven = scr; driveTo(scr);
+  }), {rootMargin:'-45% 0px -45% 0px'});
+  $$('#flow .sec').forEach(sec => io.observe(sec));
 }
-
-renderChapters();
-setChapter(0, false);
 startOnboarding();
 })();
 </script>
