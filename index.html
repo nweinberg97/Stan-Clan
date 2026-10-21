@@ -317,7 +317,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
     </div>
     <nav class="chapters" id="chapters" aria-label="Chapters"></nav>
     <article class="panel" id="panel" aria-live="polite"></article>
-    <p class="disclaimer"><strong style="color:var(--ink)">Why I made this:</strong> I&#39;m sharing the idea because I think it would be really cool if Stan built it. No ask, no strings.<br><br>Independent concept by Nitai Weinberg, inspired by Launchpad. Not an official Stan product. Every person, message and number in the phone is invented for the demo. Photos from <a href="https://unsplash.com" style="color:inherit">Unsplash</a> by Detail .co, Jud Mackrill, Happy &amp; Spice, Vitaly Gariev and Kelly Sikkema.</p>
+    <p class="disclaimer"><strong style="color:var(--ink)">Why I made this:</strong> I&#39;m sharing the idea because I think it would be really cool if Stan built it. No ask, no strings.<br><br>Independent concept by Nitai Weinberg, inspired by Launchpad. Not an official Stan product. Every person, message and number in the phone is invented for the demo. Photos and headshots from <a href="https://unsplash.com" style="color:inherit">Unsplash</a>, used under the Unsplash License.</p>
   </section>
 
   <div class="phone-col">
@@ -478,8 +478,8 @@ const $$ = s => [...document.querySelectorAll(s)];
 const COLORS = ['#E8735A','#3E9BD6','#C25BB5','#2FAE84','#D69B2D','#6A5AE6','#E2557F','#4C7FE0','#1E8C8C','#9B6B3F'];
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const initials = n => n.split(' ').map(w=>w[0]).join('').slice(0,2);
-const FACES = {"Maya R.": "1494790108377-be9c29b29330", "Priya S.": "1580489944761-15a19d654956", "Tess A.": "1562337404-3044c84ac061", "Jada P.": "1701096351544-7de3c7fa0272", "Aisha N.": "1573294705900-9623cfc746b7", "Clara V.": "1607990283143-e81e7a2c9349", "Mei L.": "1573497491765-dccce02b29df", "Nadia F.": "1745434159123-4908d0b9df94", "Hana Y.": "1627161683077-e34782c24d81", "Ola B.": "1573496359142-b8d87734a5a2", "Grace W.": "1573497019940-1c28c88b4f3e", "Iris K.": "1699899657680-421c2c2d5064", "Bea C.": "1611432579699-484f7990b127", "Ivy Z.": "1573496358961-3c82861ab8f4", "Rosa M.": "1611695434369-a8f5d76ceb7b", "Devon K.": "1507003211169-0a1dd7228f2d", "Luis M.": "1651684215020-f7a5b6610f23", "Owen B.": "1576558656222-ba66febe3dec", "Jonah P.": "1583123810408-23e7b5d1af9f", "Ren T.": "1531750026848-8ada78f641c2", "Sam O.": "1560250097-0b93528c311a", "Nate H.": "1629425733761-caae3b5f2e50", "Marco L.": "1500648767791-00dcc994a43e", "Ben T.": "1519085360753-af0119f7cbe7", "Eli G.": "1595211877493-41a4e5f236b3", "Kofi D.": "1652471943570-f3590a4e52ed", "Theo R.": "1507003211169-0a1dd7228f2d", "Dan W.": "1651684215020-f7a5b6610f23"};
-const face = n => FACES[n] ? `<img class="face" src="https://images.unsplash.com/photo-${FACES[n]}?auto=format&fit=crop&crop=faces&w=160&h=160&q=70" alt="" loading="lazy" onerror="this.remove()">` : '';
+const FACES = {"Maya R.": "1534528741775-53994a69daeb", "Priya S.": "1777670870165-b393d06aa3c4", "Tess A.": "1758600433991-933fb663161f", "Jada P.": "1554151228-14d9def656e4", "Aisha N.": "1786677772080-f908094ea342", "Clara V.": "1601412436009-d964bd02edbc", "Mei L.": "1777670867722-b3aea4bba1f3", "Nadia F.": "1674932668403-33398b81c92f", "Hana Y.": "1581841064838-a470c740e8ee", "Ola B.": "1765506255227-2feaa9bd58ec", "Grace W.": "1494790108377-be9c29b29330", "Iris K.": "1580489944761-15a19d654956", "Bea C.": "1701096351544-7de3c7fa0272", "Ivy Z.": "1611432579699-484f7990b127", "Rosa M.": "1745434159123-4908d0b9df94", "Devon K.": "1611695434398-4f4b330623e6", "Luis M.": "1629747490241-624f07d70e1e", "Owen B.": "1535713875002-d1d0cf377fde", "Jonah P.": "1600603406200-5b2a104684ac", "Ren T.": "1499996860823-5214fcc65f8f", "Sam O.": "1587397845856-e6cf49176c70", "Nate H.": "1593757107729-eae8bcc74f8e", "Marco L.": "1695737679868-de7eb09df3d0", "Ben T.": "1614321375197-c5083895b054", "Eli G.": "1681097561932-36d0df02b379", "Kofi D.": "1604494747044-2e080876c5f1", "Theo R.": "1647593782884-1a6779139eb5", "Dan W.": "1584984647264-7e6f4e6d6b91"};
+const face = n => FACES[n] ? `<img class="face" src="https://images.unsplash.com/photo-${FACES[n]}?auto=format&fit=crop&crop=faces&w=160&h=160&q=70" alt="" onerror="this.remove()">` : '';
 const avHtml = (name, i, cls='') => `<span class="av ${cls}" style="background:${COLORS[i%COLORS.length]}" aria-hidden="true">${esc(initials(name))}${face(name)}</span>`;
 
 /* ---------------- Data ---------------- */
@@ -519,10 +519,10 @@ const STAGES = [['pre','Haven\'t launched yet','Pre-launch'],['0-6','0–6 month
 const REPLIES = ['Good question. A few of us went through that last month.','Welcome! Nobody here has it figured out yet, ask anything.','Raise your hand and say more, we\'d love to hear it.','Saving this for Friday so more people see it.'];
 const UNSPLASH = {
   fitness:['1764162051225-a5fa111c5ce1','Detail .co'],
-  newsletter:['1706425461862-58beaf4b0ab6','Happy & Spice'],
-  food:['1758523417579-4d87d0833712','Vitaly Gariev'],
-  design:['1611241893603-3c359704e0ee','Kelly Sikkema'],
-  other:['1572021335469-31706a17aaef','Jud Mackrill'],
+  newsletter:['1673767296863-c00f139e4be8','Videodeck .co'],
+  food:['1695408246612-584543865997','Wesley Tingey'],
+  design:['1627244714766-94dab62ed964','Nubelson Fernandes'],
+  other:['1758273239210-59fea02475eb','Vitaly Gariev'],
   call:['1781606989379-5c62ed674c41','Detail .co']
 };
 const photo = (k, w=800) => `https://images.unsplash.com/photo-${UNSPLASH[k][0]}?auto=format&fit=crop&w=${w}&q=70`;
@@ -833,7 +833,7 @@ const CH = [
   {k:'Your cohort', screen:'home', cta:'Open your clan', html:`
     <div class="eyebrow">Stan Clan</div>
     <h2>A private, AI-matched network for every person building a business with Stan.</h2>
-        <figure class="figure"><img src="${photo('other',1200)}" alt="Four creators laughing around a laptop" loading="lazy"><figcaption>Photo: ${UNSPLASH.other[1]} / Unsplash</figcaption></figure>
+        <figure class="figure"><img src="${photo('other',1200)}" alt="A young creator filming herself" loading="lazy"><figcaption>Photo: ${UNSPLASH.other[1]} / Unsplash</figcaption></figure>
     <p>Not a course. Not a feed. <strong style="color:var(--purple)">A small group of peers at your exact stage</strong>, like a Launchpad cohort that never ends.</p>
     <div class="feats">
       <div class="feat"><b>AI-matched clans</b><span>Matched by niche, stage and vibe, using data Stan already has.</span></div>
