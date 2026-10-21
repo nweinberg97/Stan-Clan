@@ -190,6 +190,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
 .members{display:flex;gap:10px;overflow-x:auto;padding-bottom:2px}
 .mem{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11px;font-weight:700;width:52px;flex:none}
 .av{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-size:12px;flex:none;position:relative}
+.av .face{position:absolute;inset:0;width:100%;height:100%;border-radius:50%;object-fit:cover}
 .mem .av{width:44px;height:44px;font-size:14px}
 .av.on::after{content:"";position:absolute;right:0;bottom:0;width:11px;height:11px;border-radius:50%;background:var(--good);border:2px solid var(--surface)}
 .list{display:flex;flex-direction:column;gap:8px}
@@ -307,7 +308,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
     <div class="brandbar">
       <img class="stan-logo" src="assets/stan-logo.png" alt="Stan">
       <span class="x" aria-hidden="true">+</span>
-      <span class="clan-lockup"><span class="cm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#6355FF"/><g fill="none" stroke="#fff" stroke-width="4.6" stroke-linecap="round"><path d="M23.94 23.66A11.6 11.6 0 0 1 40.06 23.66"/><path d="M43.26 29.19A11.6 11.6 0 0 1 35.20 43.15"/><path d="M28.80 43.15A11.6 11.6 0 0 1 20.74 29.19"/></g><g fill="#fff"><circle cx="32.00" cy="11.80" r="4.5"/><circle cx="49.49" cy="42.10" r="4.5"/><circle cx="14.51" cy="42.10" r="4.5"/></g><path d="M32 26.4C32.64 30.4 33.6 31.36 37.6 32C33.6 32.64 32.64 33.6 32 37.6C31.36 33.6 30.4 32.64 26.4 32C30.4 31.36 31.36 30.4 32 26.4Z" fill="#5DE6D2"/></svg></span><span class="wm">Stan <b>Clan</b></span></span>
+      <span class="clan-lockup"><span class="cm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#6355FF"/><path d="M42.66 23.30A13 13 0 1 0 42.66 40.70" fill="none" stroke="#fff" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 19v-6M33 45v6" fill="none" stroke="#fff" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="wm">Stan <b>Clan</b></span></span>
     </div>
     <div>
       <div class="eyebrow">A working prototype</div>
@@ -316,7 +317,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
     </div>
     <nav class="chapters" id="chapters" aria-label="Chapters"></nav>
     <article class="panel" id="panel" aria-live="polite"></article>
-    <p class="disclaimer">Independent concept by Nitai Weinberg, inspired by Launchpad. Not an official Stan product. Every person, message and number in the phone is invented for the demo. Photos from <a href="https://unsplash.com" style="color:inherit">Unsplash</a> by Detail .co, Jud Mackrill, Happy &amp; Spice, Vitaly Gariev and Kelly Sikkema.</p>
+    <p class="disclaimer"><strong style="color:var(--ink)">Why I made this:</strong> I&#39;m sharing the idea because I think it would be really cool if Stan built it. No ask, no strings.<br><br>Independent concept by Nitai Weinberg, inspired by Launchpad. Not an official Stan product. Every person, message and number in the phone is invented for the demo. Photos from <a href="https://unsplash.com" style="color:inherit">Unsplash</a> by Detail .co, Jud Mackrill, Happy &amp; Spice, Vitaly Gariev and Kelly Sikkema.</p>
   </section>
 
   <div class="phone-col">
@@ -326,7 +327,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
         <!-- Onboarding -->
         <div class="screen" id="s-onboard">
           <div class="hdr">
-            <div class="logo-disc" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#fff"/><g fill="none" stroke="#6355FF" stroke-width="4.6" stroke-linecap="round"><path d="M23.94 23.66A11.6 11.6 0 0 1 40.06 23.66"/><path d="M43.26 29.19A11.6 11.6 0 0 1 35.20 43.15"/><path d="M28.80 43.15A11.6 11.6 0 0 1 20.74 29.19"/></g><g fill="#6355FF"><circle cx="32.00" cy="11.80" r="4.5"/><circle cx="49.49" cy="42.10" r="4.5"/><circle cx="14.51" cy="42.10" r="4.5"/></g><path d="M32 26.4C32.64 30.4 33.6 31.36 37.6 32C33.6 32.64 32.64 33.6 32 37.6C31.36 33.6 30.4 32.64 26.4 32C30.4 31.36 31.36 30.4 32 26.4Z" fill="#6355FF"/></svg></div>
+            <div class="logo-disc" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#fff"/><path d="M42.66 23.30A13 13 0 1 0 42.66 40.70" fill="none" stroke="#6355FF" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 19v-6M33 45v6" fill="none" stroke="#6355FF" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <h2>Finding your clan</h2>
             <div class="sub">Powered by Stan AI · 2 questions</div>
           </div>
@@ -353,7 +354,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
         <!-- Clan home -->
         <div class="screen tabbed" id="s-home" hidden>
           <div class="hdr">
-            <div class="logo-disc" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#fff"/><g fill="none" stroke="#6355FF" stroke-width="4.6" stroke-linecap="round"><path d="M23.94 23.66A11.6 11.6 0 0 1 40.06 23.66"/><path d="M43.26 29.19A11.6 11.6 0 0 1 35.20 43.15"/><path d="M28.80 43.15A11.6 11.6 0 0 1 20.74 29.19"/></g><g fill="#6355FF"><circle cx="32.00" cy="11.80" r="4.5"/><circle cx="49.49" cy="42.10" r="4.5"/><circle cx="14.51" cy="42.10" r="4.5"/></g><path d="M32 26.4C32.64 30.4 33.6 31.36 37.6 32C33.6 32.64 32.64 33.6 32 37.6C31.36 33.6 30.4 32.64 26.4 32C30.4 31.36 31.36 30.4 32 26.4Z" fill="#6355FF"/></svg></div>
+            <div class="logo-disc" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#fff"/><path d="M42.66 23.30A13 13 0 1 0 42.66 40.70" fill="none" stroke="#6355FF" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 19v-6M33 45v6" fill="none" stroke="#6355FF" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <h2 id="clan-name">Fitness Coaches</h2>
             <div class="sub" id="clan-sub">12 creators · 4 online now · Season 1, week 2</div>
           </div>
@@ -458,7 +459,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
         <nav class="tabs" id="tabs" aria-label="Stan sections" hidden>
           <button class="tab" data-tab="stanley"><img class="ti" src="assets/stanley-mascot.png" alt="">Stanley</button>
           <button class="tab" data-tab="store"><img class="ti" src="assets/stan-mark.png" alt="">Store</button>
-          <button class="tab" data-tab="home"><span class="ti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#6355FF"/><g fill="none" stroke="#fff" stroke-width="4.6" stroke-linecap="round"><path d="M23.94 23.66A11.6 11.6 0 0 1 40.06 23.66"/><path d="M43.26 29.19A11.6 11.6 0 0 1 35.20 43.15"/><path d="M28.80 43.15A11.6 11.6 0 0 1 20.74 29.19"/></g><g fill="#fff"><circle cx="32.00" cy="11.80" r="4.5"/><circle cx="49.49" cy="42.10" r="4.5"/><circle cx="14.51" cy="42.10" r="4.5"/></g><path d="M32 26.4C32.64 30.4 33.6 31.36 37.6 32C33.6 32.64 32.64 33.6 32 37.6C31.36 33.6 30.4 32.64 26.4 32C30.4 31.36 31.36 30.4 32 26.4Z" fill="#5DE6D2"/></svg></span>Clan<span class="badge">4</span></button>
+          <button class="tab" data-tab="home"><span class="ti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#6355FF"/><path d="M42.66 23.30A13 13 0 1 0 42.66 40.70" fill="none" stroke="#fff" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 19v-6M33 45v6" fill="none" stroke="#fff" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Clan<span class="badge">4</span></button>
         </nav>
 
         <div class="status" id="status"><span>9:41</span><span class="island"></span><span class="batt"></span></div>
@@ -477,7 +478,9 @@ const $$ = s => [...document.querySelectorAll(s)];
 const COLORS = ['#E8735A','#3E9BD6','#C25BB5','#2FAE84','#D69B2D','#6A5AE6','#E2557F','#4C7FE0','#1E8C8C','#9B6B3F'];
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const initials = n => n.split(' ').map(w=>w[0]).join('').slice(0,2);
-const avHtml = (name, i, cls='') => `<span class="av ${cls}" style="background:${COLORS[i%COLORS.length]}" aria-hidden="true">${esc(initials(name))}</span>`;
+const FACES = {"Maya R.": "1494790108377-be9c29b29330", "Priya S.": "1580489944761-15a19d654956", "Tess A.": "1562337404-3044c84ac061", "Jada P.": "1701096351544-7de3c7fa0272", "Aisha N.": "1573294705900-9623cfc746b7", "Clara V.": "1607990283143-e81e7a2c9349", "Mei L.": "1573497491765-dccce02b29df", "Nadia F.": "1745434159123-4908d0b9df94", "Hana Y.": "1627161683077-e34782c24d81", "Ola B.": "1573496359142-b8d87734a5a2", "Grace W.": "1573497019940-1c28c88b4f3e", "Iris K.": "1699899657680-421c2c2d5064", "Bea C.": "1611432579699-484f7990b127", "Ivy Z.": "1573496358961-3c82861ab8f4", "Rosa M.": "1611695434369-a8f5d76ceb7b", "Devon K.": "1507003211169-0a1dd7228f2d", "Luis M.": "1651684215020-f7a5b6610f23", "Owen B.": "1576558656222-ba66febe3dec", "Jonah P.": "1583123810408-23e7b5d1af9f", "Ren T.": "1531750026848-8ada78f641c2", "Sam O.": "1560250097-0b93528c311a", "Nate H.": "1629425733761-caae3b5f2e50", "Marco L.": "1500648767791-00dcc994a43e", "Ben T.": "1519085360753-af0119f7cbe7", "Eli G.": "1595211877493-41a4e5f236b3", "Kofi D.": "1652471943570-f3590a4e52ed", "Theo R.": "1507003211169-0a1dd7228f2d", "Dan W.": "1651684215020-f7a5b6610f23"};
+const face = n => FACES[n] ? `<img class="face" src="https://images.unsplash.com/photo-${FACES[n]}?auto=format&fit=crop&crop=faces&w=160&h=160&q=70" alt="" loading="lazy" onerror="this.remove()">` : '';
+const avHtml = (name, i, cls='') => `<span class="av ${cls}" style="background:${COLORS[i%COLORS.length]}" aria-hidden="true">${esc(initials(name))}${face(name)}</span>`;
 
 /* ---------------- Data ---------------- */
 const NICHES = {
@@ -863,7 +866,7 @@ const CH = [
     <div class="pillars">
       <button class="pill" data-pgo="stanley"><img class="pi" src="assets/stanley-mascot.png" alt=""><small>01</small><b>Stanley</b><span>How you grow</span></button>
       <button class="pill" data-pgo="store"><img class="pi" src="assets/stan-mark.png" alt=""><small>02</small><b>Stan Store</b><span>How you monetize</span></button>
-      <button class="pill us" data-pgo="home"><span class="pi"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#fff"/><g fill="none" stroke="#6355FF" stroke-width="4.6" stroke-linecap="round"><path d="M23.94 23.66A11.6 11.6 0 0 1 40.06 23.66"/><path d="M43.26 29.19A11.6 11.6 0 0 1 35.20 43.15"/><path d="M28.80 43.15A11.6 11.6 0 0 1 20.74 29.19"/></g><g fill="#6355FF"><circle cx="32.00" cy="11.80" r="4.5"/><circle cx="49.49" cy="42.10" r="4.5"/><circle cx="14.51" cy="42.10" r="4.5"/></g><path d="M32 26.4C32.64 30.4 33.6 31.36 37.6 32C33.6 32.64 32.64 33.6 32 37.6C31.36 33.6 30.4 32.64 26.4 32C30.4 31.36 31.36 30.4 32 26.4Z" fill="#6355FF"/></svg></span><small>03</small><b>Stan Clan</b><span>How you belong</span></button>
+      <button class="pill us" data-pgo="home"><span class="pi"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#fff"/><path d="M42.66 23.30A13 13 0 1 0 42.66 40.70" fill="none" stroke="#6355FF" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 19v-6M33 45v6" fill="none" stroke="#6355FF" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><small>03</small><b>Stan Clan</b><span>How you belong</span></button>
     </div>`},
   {k:'How it ships', screen:null, html:`
     <div class="eyebrow">How this ships</div>
