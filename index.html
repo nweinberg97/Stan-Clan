@@ -3,10 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Stan Clan: a clickable concept for a private, AI-matched peer network inside Stan.">
+<meta name="description" content="What if everyone using Stan had a Launchpad? A clickable concept for Stan Clan, a private AI-matched peer network inside Stan.">
+<meta property="og:title" content="Stan Clan: what if everyone using Stan had a Launchpad?">
+<meta property="og:description" content="A clickable concept for a private, AI-matched peer network inside Stan. Tap through it in a minute.">
+<meta property="og:image" content="https://nweinberg97.github.io/Stan-Clan/assets/og.png">
+<meta property="og:url" content="https://nweinberg97.github.io/Stan-Clan/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <title>Stan Clan Prototype</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2064%2064%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2232%22%20fill%3D%22%236355FF%22/%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2217.5%22%20r%3D%225.5%22/%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%2243%22%20r%3D%225.5%22/%3E%3Ccircle%20cx%3D%2246%22%20cy%3D%2243%22%20r%3D%225.5%22/%3E%3Cpath%20d%3D%22M28.6%2022.6%2021.4%2037.9M35.4%2022.6l7.2%2015.3M24.5%2045h15%22/%3E%3C/g%3E%3Cpath%20d%3D%22M48%2013l1.3%203.2%203.2%201.3-3.2%201.3L48%2022l-1.3-3.2-3.2-1.3%203.2-1.3z%22%20fill%3D%22%235DE6D2%22/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="assets/clan-mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
 <style>
@@ -189,6 +195,11 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
 .list{display:flex;flex-direction:column;gap:8px}
 .li{display:flex;align-items:center;gap:12px;background:var(--surface);border-radius:14px;padding:12px 14px;font-size:13.5px;width:100%}
 .li .dot{width:26px;height:26px;border-radius:50%;flex:none}
+.li .thumb{width:44px;height:44px;border-radius:12px;flex:none;background-size:cover;background-position:center}
+.hdr.photo{background-size:cover;background-position:center}
+.figure{margin:0;border-radius:14px;overflow:hidden;position:relative;aspect-ratio:16/7;max-width:100%;background:linear-gradient(135deg,var(--purple),var(--purple-deep))}
+.figure img{width:100%;height:100%;object-fit:cover;display:block}
+.figure figcaption{position:absolute;right:8px;bottom:8px;font-size:10.5px;color:#fff;background:rgba(10,10,40,.55);padding:3px 8px;border-radius:999px}
 .li .grow{flex:1;min-width:0}
 .li .grow b{display:block}
 .li .grow small{color:var(--muted);font-size:12px}
@@ -296,7 +307,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
     <div class="brandbar">
       <img class="stan-logo" src="assets/stan-logo.png" alt="Stan">
       <span class="x" aria-hidden="true">+</span>
-      <span class="clan-lockup"><span class="cm"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="32" fill="#6355FF"/><g fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"><circle cx="32" cy="17.5" r="5.5"/><circle cx="18" cy="43" r="5.5"/><circle cx="46" cy="43" r="5.5"/><path d="M28.6 22.6 21.4 37.9M35.4 22.6l7.2 15.3M24.5 45h15"/></g><path d="M48 13l1.3 3.2 3.2 1.3-3.2 1.3L48 22l-1.3-3.2-3.2-1.3 3.2-1.3z" fill="#5DE6D2"/></svg></span><span class="wm">Stan <b>Clan</b></span></span>
+      <span class="clan-lockup"><span class="cm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#6355FF"/><g fill="none" stroke="#fff" stroke-width="4.6" stroke-linecap="round"><path d="M23.94 23.66A11.6 11.6 0 0 1 40.06 23.66"/><path d="M43.26 29.19A11.6 11.6 0 0 1 35.20 43.15"/><path d="M28.80 43.15A11.6 11.6 0 0 1 20.74 29.19"/></g><g fill="#fff"><circle cx="32.00" cy="11.80" r="4.5"/><circle cx="49.49" cy="42.10" r="4.5"/><circle cx="14.51" cy="42.10" r="4.5"/></g><path d="M32 26.4C32.64 30.4 33.6 31.36 37.6 32C33.6 32.64 32.64 33.6 32 37.6C31.36 33.6 30.4 32.64 26.4 32C30.4 31.36 31.36 30.4 32 26.4Z" fill="#5DE6D2"/></svg></span><span class="wm">Stan <b>Clan</b></span></span>
     </div>
     <div>
       <div class="eyebrow">A working prototype</div>
@@ -305,7 +316,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
     </div>
     <nav class="chapters" id="chapters" aria-label="Chapters"></nav>
     <article class="panel" id="panel" aria-live="polite"></article>
-    <p class="disclaimer">Independent concept by Nitai Weinberg, inspired by Launchpad. Not an official Stan product. Every person, message and number in the phone is invented for the demo.</p>
+    <p class="disclaimer">Independent concept by Nitai Weinberg, inspired by Launchpad. Not an official Stan product. Every person, message and number in the phone is invented for the demo. Photos from <a href="https://unsplash.com" style="color:inherit">Unsplash</a> by Detail .co, Jud Mackrill, Happy &amp; Spice, Vitaly Gariev and Kelly Sikkema.</p>
   </section>
 
   <div class="phone-col">
@@ -315,7 +326,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
         <!-- Onboarding -->
         <div class="screen" id="s-onboard">
           <div class="hdr">
-            <div class="logo-disc" aria-hidden="true"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="32" fill="#fff"/><g fill="none" stroke="#6355FF" stroke-width="5" stroke-linecap="round"><circle cx="32" cy="17.5" r="5.5"/><circle cx="18" cy="43" r="5.5"/><circle cx="46" cy="43" r="5.5"/><path d="M28.6 22.6 21.4 37.9M35.4 22.6l7.2 15.3M24.5 45h15"/></g><path d="M48 13l1.3 3.2 3.2 1.3-3.2 1.3L48 22l-1.3-3.2-3.2-1.3 3.2-1.3z" fill="#5DE6D2"/></svg></div>
+            <div class="logo-disc" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#fff"/><g fill="none" stroke="#6355FF" stroke-width="4.6" stroke-linecap="round"><path d="M23.94 23.66A11.6 11.6 0 0 1 40.06 23.66"/><path d="M43.26 29.19A11.6 11.6 0 0 1 35.20 43.15"/><path d="M28.80 43.15A11.6 11.6 0 0 1 20.74 29.19"/></g><g fill="#6355FF"><circle cx="32.00" cy="11.80" r="4.5"/><circle cx="49.49" cy="42.10" r="4.5"/><circle cx="14.51" cy="42.10" r="4.5"/></g><path d="M32 26.4C32.64 30.4 33.6 31.36 37.6 32C33.6 32.64 32.64 33.6 32 37.6C31.36 33.6 30.4 32.64 26.4 32C30.4 31.36 31.36 30.4 32 26.4Z" fill="#6355FF"/></svg></div>
             <h2>Finding your clan</h2>
             <div class="sub">Powered by Stan AI · 2 questions</div>
           </div>
@@ -342,7 +353,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
         <!-- Clan home -->
         <div class="screen tabbed" id="s-home" hidden>
           <div class="hdr">
-            <div class="logo-disc" aria-hidden="true"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="32" fill="#fff"/><g fill="none" stroke="#6355FF" stroke-width="5" stroke-linecap="round"><circle cx="32" cy="17.5" r="5.5"/><circle cx="18" cy="43" r="5.5"/><circle cx="46" cy="43" r="5.5"/><path d="M28.6 22.6 21.4 37.9M35.4 22.6l7.2 15.3M24.5 45h15"/></g><path d="M48 13l1.3 3.2 3.2 1.3-3.2 1.3L48 22l-1.3-3.2-3.2-1.3 3.2-1.3z" fill="#5DE6D2"/></svg></div>
+            <div class="logo-disc" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#fff"/><g fill="none" stroke="#6355FF" stroke-width="4.6" stroke-linecap="round"><path d="M23.94 23.66A11.6 11.6 0 0 1 40.06 23.66"/><path d="M43.26 29.19A11.6 11.6 0 0 1 35.20 43.15"/><path d="M28.80 43.15A11.6 11.6 0 0 1 20.74 29.19"/></g><g fill="#6355FF"><circle cx="32.00" cy="11.80" r="4.5"/><circle cx="49.49" cy="42.10" r="4.5"/><circle cx="14.51" cy="42.10" r="4.5"/></g><path d="M32 26.4C32.64 30.4 33.6 31.36 37.6 32C33.6 32.64 32.64 33.6 32 37.6C31.36 33.6 30.4 32.64 26.4 32C30.4 31.36 31.36 30.4 32 26.4Z" fill="#6355FF"/></svg></div>
             <h2 id="clan-name">Fitness Coaches</h2>
             <div class="sub" id="clan-sub">12 creators · 4 online now · Season 1, week 2</div>
           </div>
@@ -447,7 +458,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
         <nav class="tabs" id="tabs" aria-label="Stan sections" hidden>
           <button class="tab" data-tab="stanley"><img class="ti" src="assets/stanley-mascot.png" alt="">Stanley</button>
           <button class="tab" data-tab="store"><img class="ti" src="assets/stan-mark.png" alt="">Store</button>
-          <button class="tab" data-tab="home"><span class="ti"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="32" fill="#6355FF"/><g fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"><circle cx="32" cy="17.5" r="5.5"/><circle cx="18" cy="43" r="5.5"/><circle cx="46" cy="43" r="5.5"/><path d="M28.6 22.6 21.4 37.9M35.4 22.6l7.2 15.3M24.5 45h15"/></g><path d="M48 13l1.3 3.2 3.2 1.3-3.2 1.3L48 22l-1.3-3.2-3.2-1.3 3.2-1.3z" fill="#5DE6D2"/></svg></span>Clan<span class="badge">4</span></button>
+          <button class="tab" data-tab="home"><span class="ti"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#6355FF"/><g fill="none" stroke="#fff" stroke-width="4.6" stroke-linecap="round"><path d="M23.94 23.66A11.6 11.6 0 0 1 40.06 23.66"/><path d="M43.26 29.19A11.6 11.6 0 0 1 35.20 43.15"/><path d="M28.80 43.15A11.6 11.6 0 0 1 20.74 29.19"/></g><g fill="#fff"><circle cx="32.00" cy="11.80" r="4.5"/><circle cx="49.49" cy="42.10" r="4.5"/><circle cx="14.51" cy="42.10" r="4.5"/></g><path d="M32 26.4C32.64 30.4 33.6 31.36 37.6 32C33.6 32.64 32.64 33.6 32 37.6C31.36 33.6 30.4 32.64 26.4 32C30.4 31.36 31.36 30.4 32 26.4Z" fill="#5DE6D2"/></svg></span>Clan<span class="badge">4</span></button>
         </nav>
 
         <div class="status" id="status"><span>9:41</span><span class="island"></span><span class="batt"></span></div>
@@ -503,6 +514,17 @@ const NICHES = {
 };
 const STAGES = [['pre','Haven\'t launched yet','Pre-launch'],['0-6','0–6 months','0–6 months'],['6-12','6–12 months','6–12 months'],['1y','More than a year','1 year+']];
 const REPLIES = ['Good question. A few of us went through that last month.','Welcome! Nobody here has it figured out yet, ask anything.','Raise your hand and say more, we\'d love to hear it.','Saving this for Friday so more people see it.'];
+const UNSPLASH = {
+  fitness:['1764162051225-a5fa111c5ce1','Detail .co'],
+  newsletter:['1706425461862-58beaf4b0ab6','Happy & Spice'],
+  food:['1758523417579-4d87d0833712','Vitaly Gariev'],
+  design:['1611241893603-3c359704e0ee','Kelly Sikkema'],
+  other:['1572021335469-31706a17aaef','Jud Mackrill'],
+  call:['1781606989379-5c62ed674c41','Detail .co']
+};
+const photo = (k, w=800) => `https://images.unsplash.com/photo-${UNSPLASH[k][0]}?auto=format&fit=crop&w=${w}&q=70`;
+const CLAN_PHOTO = {'$0–1K/mo Club':'other','First Product Launch':'fitness','Weeknight Builders':'call','Newsletter Writers':'newsletter','Pre-launch Crew':'newsletter','Recipe Creators':'food','$1–5K/mo Club':'other','Template Sellers':'design','Parents Who Create':'food','Podcast Starters':'call','Faceless Content':'design','Course Builders':'design','Side-Hustle Mornings':'newsletter','Pacific Night Owls':'call'};
+const overlay = 'linear-gradient(160deg,rgba(99,85,255,.88),rgba(52,40,190,.94))';
 const CLANS = [
   {n:'$0–1K/mo Club',cat:'Revenue',on:5,m:14,d:'Everyone here is working toward their first $1K month. Weekly revenue check-ins, no judgment.',topic:'What got you your first $100'},
   {n:'First Product Launch',cat:'Stage',on:7,m:12,d:'Creators shipping their first product in the next 30 days. Launch dates go on the board.',topic:'Launch week checklists'},
@@ -601,12 +623,13 @@ $('#meet').addEventListener('click', () => { go('home'); later(()=>toast('Welcom
 function renderHome(){
   const N = NICHES[niche];
   $('#clan-name').textContent = `${N.clan}, ${stage[2]}`;
+  const hh = $('#s-home .hdr'); hh.classList.add('photo'); hh.style.backgroundImage = `${overlay},url(${photo(niche)})`;
   $('#topic-short').textContent = `${N.topic} · hosted by ${N.people.slice(0,3).map(p=>p[0].split(' ')[0]).join(', ')}`;
   $('#members').innerHTML = N.people.map((p,i) => `<button class="mem" data-person="${i}">${avHtml(p[0], i, i<4?'on':'')}<span>${esc(p[0].split(' ')[0])}</span></button>`).join('');
   $$('#members [data-person]').forEach(b => b.addEventListener('click', () => openPerson(+b.dataset.person)));
   renderWins();
   const mine = CLANS.filter(c => joined.has(c.n));
-  $('#others').innerHTML = mine.map(c => `<button class="li" data-clan="${esc(c.n)}"><span class="dot" style="background:${COLORS[CLANS.indexOf(c)%COLORS.length]}"></span><span class="grow"><b>${esc(c.n)}</b><small>${c.on} online · ${esc(c.topic)}</small></span><span class="chev">›</span></button>`).join('') || '<div class="card" style="font-size:13px;color:var(--muted)">You haven\'t joined any other clans yet.</div>';
+  $('#others').innerHTML = mine.map(c => `<button class="li" data-clan="${esc(c.n)}"><span class="thumb" style="background-color:${COLORS[CLANS.indexOf(c)%COLORS.length]};background-image:url(${photo(CLAN_PHOTO[c.n]||'other',160)})"></span><span class="grow"><b>${esc(c.n)}</b><small>${c.on} online · ${esc(c.topic)}</small></span><span class="chev">›</span></button>`).join('') || '<div class="card" style="font-size:13px;color:var(--muted)">You haven\'t joined any other clans yet.</div>';
   $$('#others [data-clan]').forEach(b => b.addEventListener('click', () => { currentClan = CLANS.find(c=>c.n===b.dataset.clan); go('clan'); }));
 }
 function renderWins(){
@@ -633,7 +656,7 @@ function renderDir(){
   const list = [{n:`${N.clan}, ${stage[2]}`,cat:'Niche',on:4,m:12,d:'',topic:N.topic,home:true}, ...CLANS].filter(c => filter==='All' || c.cat===filter);
   $('#dir-list').innerHTML = list.map(c => {
     const isJ = c.home || joined.has(c.n);
-    return `<div class="li"><span class="dot" style="background:${c.home?'var(--teal)':COLORS[CLANS.indexOf(c)%COLORS.length]}"></span>
+    return `<div class="li"><span class="thumb" style="background-color:${c.home?'var(--teal)':COLORS[CLANS.indexOf(c)%COLORS.length]};background-image:url(${photo(c.home?niche:(CLAN_PHOTO[c.n]||'other'),160)})"></span>
       <button class="grow" data-open="${esc(c.n)}"><b>${esc(c.n)}</b><small>${c.cat} · ${c.m} members · ${c.on} online</small></button>
       ${c.home ? '<span class="join joined">Home</span>' : `<button class="join${isJ?' joined':''}" data-join="${esc(c.n)}">${isJ?'Joined':'Join'}</button>`}</div>`;
   }).join('');
@@ -655,6 +678,7 @@ function toggleJoin(name, after){
 function renderClan(){
   const c = currentClan || CLANS[0]; const idx = CLANS.indexOf(c);
   $('#cd-mark').style.background = COLORS[idx%COLORS.length];
+  const ch = $('#s-clan .hdr'); ch.classList.add('photo'); ch.style.backgroundImage = `${overlay},url(${photo(CLAN_PHOTO[c.n]||'other')})`;
   $('#cd-name').textContent = c.n;
   $('#cd-sub').textContent = `${c.m} members · ${c.on} online now`;
   $('#cd-desc').textContent = c.d;
@@ -787,6 +811,7 @@ const CH = [
   {k:'Who it\'s for', screen:'onboard', cta:'Start as a new creator', html:`
     <div class="eyebrow">Who Stanley actually helps</div>
     <h2>AI content tools reward people who already know their niche.</h2>
+    <figure class="figure"><img src="${photo('fitness',1200)}" alt="A creator filming a video on a phone tripod" loading="lazy"><figcaption>Photo: ${UNSPLASH.fitness[1]} / Unsplash</figcaption></figure>
     <div class="duo">
       <div class="a"><small>Already winning</small><b>The top of your base</b><span>Confident in their voice, clear on their niche. Stanley makes them faster. They were going to make it anyway.</span></div>
       <div class="b"><small>The real growth lever</small><b>Everyone else</b><span>Just starting out, unsure of their niche, no one around them doing the same thing. Most of your base.</span></div>
@@ -805,6 +830,7 @@ const CH = [
   {k:'Your cohort', screen:'home', cta:'Open your clan', html:`
     <div class="eyebrow">Stan Clan</div>
     <h2>A private, AI-matched network for every person building a business with Stan.</h2>
+        <figure class="figure"><img src="${photo('other',1200)}" alt="Four creators laughing around a laptop" loading="lazy"><figcaption>Photo: ${UNSPLASH.other[1]} / Unsplash</figcaption></figure>
     <p>Not a course. Not a feed. <strong style="color:var(--purple)">A small group of peers at your exact stage</strong>, like a Launchpad cohort that never ends.</p>
     <div class="feats">
       <div class="feat"><b>AI-matched clans</b><span>Matched by niche, stage and vibe, using data Stan already has.</span></div>
@@ -815,6 +841,7 @@ const CH = [
   {k:'Drop in', screen:'room', cta:'Drop into office hours', html:`
     <div class="eyebrow">What it could look like</div>
     <h2>Dropping in never feels like walking into an empty room.</h2>
+    <figure class="figure"><img src="${photo('call',1200)}" alt="A creator on a video call with her peers" loading="lazy"><figcaption>Photo: ${UNSPLASH.call[1]} / Unsplash</figcaption></figure>
     <p>Every clan shows who's active right now. Join as a listener, read the live captions, chat, or raise your hand to talk. Leave whenever. Nobody gets notified.</p>
     <div class="feats">
       <div class="feat"><b>Listen first</b><span>New creators can lurk until they're ready.</span></div>
@@ -836,7 +863,7 @@ const CH = [
     <div class="pillars">
       <button class="pill" data-pgo="stanley"><img class="pi" src="assets/stanley-mascot.png" alt=""><small>01</small><b>Stanley</b><span>How you grow</span></button>
       <button class="pill" data-pgo="store"><img class="pi" src="assets/stan-mark.png" alt=""><small>02</small><b>Stan Store</b><span>How you monetize</span></button>
-      <button class="pill us" data-pgo="home"><span class="pi"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="32" fill="#fff"/><g fill="none" stroke="#6355FF" stroke-width="5" stroke-linecap="round"><circle cx="32" cy="17.5" r="5.5"/><circle cx="18" cy="43" r="5.5"/><circle cx="46" cy="43" r="5.5"/><path d="M28.6 22.6 21.4 37.9M35.4 22.6l7.2 15.3M24.5 45h15"/></g><path d="M48 13l1.3 3.2 3.2 1.3-3.2 1.3L48 22l-1.3-3.2-3.2-1.3 3.2-1.3z" fill="#5DE6D2"/></svg></span><small>03</small><b>Stan Clan</b><span>How you belong</span></button>
+      <button class="pill us" data-pgo="home"><span class="pi"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#fff"/><g fill="none" stroke="#6355FF" stroke-width="4.6" stroke-linecap="round"><path d="M23.94 23.66A11.6 11.6 0 0 1 40.06 23.66"/><path d="M43.26 29.19A11.6 11.6 0 0 1 35.20 43.15"/><path d="M28.80 43.15A11.6 11.6 0 0 1 20.74 29.19"/></g><g fill="#6355FF"><circle cx="32.00" cy="11.80" r="4.5"/><circle cx="49.49" cy="42.10" r="4.5"/><circle cx="14.51" cy="42.10" r="4.5"/></g><path d="M32 26.4C32.64 30.4 33.6 31.36 37.6 32C33.6 32.64 32.64 33.6 32 37.6C31.36 33.6 30.4 32.64 26.4 32C30.4 31.36 31.36 30.4 32 26.4Z" fill="#6355FF"/></svg></span><small>03</small><b>Stan Clan</b><span>How you belong</span></button>
     </div>`},
   {k:'How it ships', screen:null, html:`
     <div class="eyebrow">How this ships</div>
