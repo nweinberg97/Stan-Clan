@@ -1,0 +1,57 @@
+name: Fetch Unsplash photos
+on:
+  push:
+    paths: ['.github/workflows/fetch-photos.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download photos (Unsplash License)
+        run: |
+          mkdir -p assets/faces assets/photos
+          curl -fsSL "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1494790108377-be9c29b29330.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1499996860823-5214fcc65f8f.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1534528741775-53994a69daeb.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1535713875002-d1d0cf377fde.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1554151228-14d9def656e4.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1580489944761-15a19d654956.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1581841064838-a470c740e8ee?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1581841064838-a470c740e8ee.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1584984647264-7e6f4e6d6b91?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1584984647264-7e6f4e6d6b91.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1587397845856-e6cf49176c70?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1587397845856-e6cf49176c70.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1593757107729-eae8bcc74f8e?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1593757107729-eae8bcc74f8e.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1600603406200-5b2a104684ac?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1600603406200-5b2a104684ac.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1601412436009-d964bd02edbc?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1601412436009-d964bd02edbc.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1604494747044-2e080876c5f1?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1604494747044-2e080876c5f1.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1611432579699-484f7990b127?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1611432579699-484f7990b127.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1611695434398-4f4b330623e6?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1611695434398-4f4b330623e6.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1614321375197-c5083895b054?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1614321375197-c5083895b054.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1629747490241-624f07d70e1e?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1629747490241-624f07d70e1e.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1647593782884-1a6779139eb5?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1647593782884-1a6779139eb5.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1674932668403-33398b81c92f?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1674932668403-33398b81c92f.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1681097561932-36d0df02b379?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1681097561932-36d0df02b379.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1695737679868-de7eb09df3d0?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1695737679868-de7eb09df3d0.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1701096351544-7de3c7fa0272?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1701096351544-7de3c7fa0272.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1745434159123-4908d0b9df94?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1745434159123-4908d0b9df94.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1758600433991-933fb663161f?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1758600433991-933fb663161f.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1765506255227-2feaa9bd58ec?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1765506255227-2feaa9bd58ec.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1777670867722-b3aea4bba1f3?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1777670867722-b3aea4bba1f3.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1777670870165-b393d06aa3c4?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1777670870165-b393d06aa3c4.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1786677772080-f908094ea342?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/1786677772080-f908094ea342.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1764162051225-a5fa111c5ce1?auto=format&fm=jpg&fit=crop&w=1200&q=75" -o assets/photos/fitness.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1673767296863-c00f139e4be8?auto=format&fm=jpg&fit=crop&w=1200&q=75" -o assets/photos/newsletter.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1695408246612-584543865997?auto=format&fm=jpg&fit=crop&w=1200&q=75" -o assets/photos/food.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1627244714766-94dab62ed964?auto=format&fm=jpg&fit=crop&w=1200&q=75" -o assets/photos/design.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1758273239210-59fea02475eb?auto=format&fm=jpg&fit=crop&w=1200&q=75" -o assets/photos/other.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1781606989379-5c62ed674c41?auto=format&fm=jpg&fit=crop&w=1200&q=75" -o assets/photos/call.jpg
+          ls -la assets/faces assets/photos
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/faces assets/photos
+          git diff --cached --quiet || git commit -m "Add Unsplash photos as local assets"
+          git push
