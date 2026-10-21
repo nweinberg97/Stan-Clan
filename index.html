@@ -41,9 +41,8 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;text-a
 button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
 
 .topnav{max-width:1160px;margin:0 auto 8px}
-.topnav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.topnav .for{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);font-weight:500}
-.topnav .for img{height:22px;width:auto}
+.topnav-in{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.topnav .for{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);border:1.5px solid var(--line);border-radius:999px;padding:6px 12px}
 .wrap{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:clamp(48px,7vw,110px);align-items:start}
 .story{min-width:0}
 .sec{min-height:82vh;display:flex;flex-direction:column;justify-content:center;gap:20px;padding-block:72px;max-width:600px}
@@ -313,12 +312,12 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
 
 <header class="topnav"><div class="topnav-in">
   <span class="clan-lockup"><span class="cm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#6355FF"/><path d="M42.66 23.30A13 13 0 1 0 42.66 40.70" fill="none" stroke="#fff" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 19v-6M33 45v6" fill="none" stroke="#fff" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="wm">Stan <b>Clan</b></span></span>
-  <span class="for">A concept for <img src="assets/stan-logo.png" alt="Stan"></span>
+  <span class="for">Concept</span>
 </div></header>
 <div class="wrap">
   <main class="story">
     <section class="sec hero">
-      <div class="eyebrow">A working prototype</div>
+      <div class="eyebrow">A concept for Stan</div>
       <h1>What if everyone using Stan had a <span>Launchpad?</span></h1>
       <p class="lede">Launchpad gives 30 teams peers at their exact stage. Stan Clan gives that to every creator on Stan.</p>
       <p class="scroll-hint">Scroll to walk through the idea. The phone follows along, and everything on it is tappable.</p>
@@ -486,7 +485,7 @@ const COLORS = ['#E8735A','#3E9BD6','#C25BB5','#2FAE84','#D69B2D','#6A5AE6','#E2
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const initials = n => n.split(' ').map(w=>w[0]).join('').slice(0,2);
 const FACES = {"Maya R.": "1534528741775-53994a69daeb", "Priya S.": "1777670870165-b393d06aa3c4", "Tess A.": "1758600433991-933fb663161f", "Jada P.": "1554151228-14d9def656e4", "Aisha N.": "1786677772080-f908094ea342", "Clara V.": "1601412436009-d964bd02edbc", "Mei L.": "1777670867722-b3aea4bba1f3", "Nadia F.": "1674932668403-33398b81c92f", "Hana Y.": "1581841064838-a470c740e8ee", "Ola B.": "1765506255227-2feaa9bd58ec", "Grace W.": "1494790108377-be9c29b29330", "Iris K.": "1580489944761-15a19d654956", "Bea C.": "1701096351544-7de3c7fa0272", "Ivy Z.": "1611432579699-484f7990b127", "Rosa M.": "1745434159123-4908d0b9df94", "Devon K.": "1611695434398-4f4b330623e6", "Luis M.": "1629747490241-624f07d70e1e", "Owen B.": "1535713875002-d1d0cf377fde", "Jonah P.": "1600603406200-5b2a104684ac", "Ren T.": "1499996860823-5214fcc65f8f", "Sam O.": "1587397845856-e6cf49176c70", "Nate H.": "1593757107729-eae8bcc74f8e", "Marco L.": "1695737679868-de7eb09df3d0", "Ben T.": "1614321375197-c5083895b054", "Eli G.": "1681097561932-36d0df02b379", "Kofi D.": "1604494747044-2e080876c5f1", "Theo R.": "1647593782884-1a6779139eb5", "Dan W.": "1584984647264-7e6f4e6d6b91"};
-const face = n => FACES[n] ? `<img class="face" src="https://images.unsplash.com/photo-${FACES[n]}?auto=format&fit=crop&crop=faces&w=160&h=160&q=70" alt="" onerror="this.remove()">` : '';
+const face = n => FACES[n] ? `<img class="face" src="assets/faces/${FACES[n]}.jpg" alt="" onerror="this.remove()">` : '';
 const avHtml = (name, i, cls='') => `<span class="av ${cls}" style="background:${COLORS[i%COLORS.length]}" aria-hidden="true">${esc(initials(name))}${face(name)}</span>`;
 
 /* ---------------- Data ---------------- */
@@ -532,7 +531,7 @@ const UNSPLASH = {
   other:['1758273239210-59fea02475eb','Vitaly Gariev'],
   call:['1781606989379-5c62ed674c41','Detail .co']
 };
-const photo = (k, w=800) => `https://images.unsplash.com/photo-${UNSPLASH[k][0]}?auto=format&fit=crop&w=${w}&q=70`;
+const photo = (k) => `assets/photos/${k}.jpg`;
 const CLAN_PHOTO = {'$0–1K/mo Club':'other','First Product Launch':'fitness','Weeknight Builders':'call','Newsletter Writers':'newsletter','Pre-launch Crew':'newsletter','Recipe Creators':'food','$1–5K/mo Club':'other','Template Sellers':'design','Parents Who Create':'food','Podcast Starters':'call','Faceless Content':'design','Course Builders':'design','Side-Hustle Mornings':'newsletter','Pacific Night Owls':'call'};
 const overlay = 'linear-gradient(160deg,rgba(99,85,255,.88),rgba(52,40,190,.94))';
 const CLANS = [
