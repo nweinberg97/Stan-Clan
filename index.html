@@ -174,9 +174,10 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
 .check{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;margin-top:2px}
 .signals li.on .check{background:var(--teal);border-color:var(--teal)}
 .signals li.on .check::after{content:"";width:8px;height:5px;border-left:2px solid var(--teal-ink);border-bottom:2px solid var(--teal-ink);transform:rotate(-45deg) translate(1px,-1px)}
-.cluster{position:relative;height:140px;flex:none}
-.cluster span{position:absolute;width:26px;height:26px;border-radius:50%;left:50%;top:50%;margin:-13px;transition:transform 1.1s cubic-bezier(.2,.8,.2,1),opacity .5s}
-.cluster .you{width:42px;height:42px;margin:-21px;background:var(--teal);color:var(--teal-ink);z-index:2;font-size:11px;font-weight:700;display:grid;place-items:center}
+.cluster{position:relative;height:170px;flex:none}
+.cluster span{position:absolute;width:36px;height:36px;border-radius:50%;left:50%;top:50%;margin:-18px;overflow:hidden;border:2px solid var(--surface);box-shadow:0 2px 6px rgba(20,20,80,.15);transition:transform 1.1s cubic-bezier(.2,.8,.2,1),opacity .5s}
+.cluster span img{width:100%;height:100%;object-fit:cover;display:block}
+.cluster .you{width:48px;height:48px;margin:-24px;background:var(--teal);color:var(--teal-ink);z-index:2;font-size:11px;font-weight:700;display:grid;place-items:center}
 
 .card{background:var(--surface);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:12px}
 .live-row{display:flex;gap:12px;align-items:center}
@@ -619,11 +620,12 @@ function renderMatch(){
   const sigs = [['Niche','From your answer: '+N.label],['Stage','From your answer: '+stage[1]],['Your store',N.product],['Posting rhythm','About 4 posts a week, mostly evenings'],['Time zone','Pacific, so rooms you can actually make']];
   $('#signals').innerHTML = sigs.map(([k,v]) => `<li><span class="check"></span><span><span class="k">${k}</span>${esc(v)}</span></li>`).join('');
   let dots = '<span class="you">You</span>';
-  for (let i=0;i<11;i++){ const a=(i/11)*Math.PI*2; dots += `<span data-a="${a}" style="background:${COLORS[i%COLORS.length]};transform:translate(${Math.cos(a)*150}px,${Math.sin(a)*80}px);opacity:.2"></span>`; }
+  const pool = [...N.people.map(p=>p[0]), ...Object.values(NICHES).flatMap(n=>n.people.map(p=>p[0])).filter(n=>!N.people.some(p=>p[0]===n))];
+  for (let i=0;i<11;i++){ const a=(i/11)*Math.PI*2, nm=pool[i]; dots += `<span data-a="${a}" style="background:${COLORS[i%COLORS.length]};transform:translate(${Math.cos(a)*150}px,${Math.sin(a)*80}px);opacity:.2">${FACES[nm]?`<img src="assets/faces/${FACES[nm]}.jpg" alt="">`:''}</span>`; }
   $('#cluster').innerHTML = dots;
   const lis = $$('#signals li');
   lis.forEach((li,i) => later(() => li.classList.add('on'), 300 + i*350));
-  later(() => $$('#cluster span[data-a]').forEach((d,i) => { const a=+d.dataset.a, r=52+(i%3)*9; d.style.transform=`translate(${Math.cos(a)*r}px,${Math.sin(a)*r*.9}px)`; d.style.opacity=1; }), 300 + lis.length*350);
+  later(() => $$('#cluster span[data-a]').forEach((d,i) => { const a=+d.dataset.a, r=60+(i%3)*10; d.style.transform=`translate(${Math.cos(a)*r}px,${Math.sin(a)*r*.9}px)`; d.style.opacity=1; }), 300 + lis.length*350);
   $('#meet').textContent = 'Meet your 11 cohort-mates →';
 }
 $('#meet').addEventListener('click', () => { go('home'); later(()=>toast('Welcome to your cohort. 4 people are online now.'), 250); });
