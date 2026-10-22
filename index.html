@@ -1029,36 +1029,56 @@ setStep(0);
   const c1 = q('#m-c1'), c2 = q('#m-c2'), t1 = q('#m-t1'), t2 = q('#m-t2');
   // where the bottom C meets its tick
   const j2 = G.m2.reduce((best,p) => Math.hypot(p[0]-G.t2[1][0],p[1]-G.t2[1][1]) < Math.hypot(best[0]-G.t2[1][0],best[1]-G.t2[1][1]) ? p : best, G.m2[0]);
+  // polar form of the top C around the cent's centre, unwrapped to the matching cent angle
+  const OX = 33, OY = 32;
+  const pol = G.m1.map((p,i) => {
+    const tc = Math.atan2(CENT[i][1]-OY, CENT[i][0]-OX);
+    let tp = Math.atan2(p[1]-OY, p[0]-OX);
+    const want = (-42+(-318+42)*(i/(N-1)))*Math.PI/180;
+    while (tp - want > Math.PI) tp -= 2*Math.PI;
+    while (want - tp > Math.PI) tp += 2*Math.PI;
+    return [tp, Math.hypot(p[0]-OX, p[1]-OY), want, 13];
+  });
+  const jIdx = G.m2.indexOf(j2), M2 = G.m2.length;
+  const ease = t => t<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2;
   const draw = e => {
-    const a = sm(.12,1,e);            // top C -> cent
-    const r = sm(0,.62,e);            // bottom C retracts
-    const k = sm(.2,1,e);             // ticks travel
-    c1.setAttribute('d', P(G.m1.map((p,i)=>[L(p[0],CENT[i][0],a), L(p[1],CENT[i][1],a)])));
+    // top C: a wave that runs along the stroke, each point swinging around the centre
+    c1.setAttribute('d', P(pol.map((q,i) => {
+      const lag = .28*(i/(N-1)), u = ease(Math.min(1, Math.max(0, (e - lag)/(1 - .28))));
+      const th = L(q[0], q[2], u), rr = L(q[1], q[3], u);
+      return [OX + rr*Math.cos(th), OY + rr*Math.sin(th)];
+    })));
+    // ticks glide on the same curve
+    const k = ease(Math.min(1, Math.max(0, (e - .08)/.86)));
     const tb2 = [L(G.t2[1][0],33,k), L(G.t2[1][1],45,k)];
-    const jx = L(j2[0], tb2[0], r), jy = L(j2[1], tb2[1], r);
-    c2.setAttribute('d', P(G.m2.map(p=>[L(p[0],jx,r), L(p[1],jy,r)])));
-    c2.style.opacity = r > .92 ? (1-r)/.08 : 1;
     t1.setAttribute('d', `M${L(G.t1[1][0],33,k).toFixed(2)} ${L(G.t1[1][1],19,k).toFixed(2)}L${L(G.t1[0][0],33,k).toFixed(2)} ${L(G.t1[0][1],13,k).toFixed(2)}`);
     t2.setAttribute('d', `M${tb2[0].toFixed(2)} ${tb2[1].toFixed(2)}L${L(G.t2[0][0],33,k).toFixed(2)} ${L(G.t2[0][1],51,k).toFixed(2)}`);
+    // bottom C winds into its tick from both ends, riding along as the tick moves
+    const r = ease(Math.min(1, Math.max(0, e/.7)));
+    const lo = Math.round(jIdx*r), hi = Math.round(jIdx + (M2-1-jIdx)*(1-r));
+    const dx = tb2[0]-G.t2[1][0], dy = tb2[1]-G.t2[1][1];
+    const seg = G.m2.slice(lo, Math.max(lo+1, hi+1)).map(p => [p[0]+dx, p[1]+dy]);
+    c2.setAttribute('d', P(seg.length > 1 ? seg : [seg[0], seg[0]]));
+    c2.style.opacity = r > .96 ? (1-r)/.04 : 1;
   };
   draw(0);
-  const MORPH_AT = 1900, MORPH_MS = 1800;
+  const MORPH_AT = 1900, MORPH_MS = 2200;
   const easeT = t => -(Math.cos(Math.PI*t)-1)/2;
   let rafId, t0 = null;
-  const tick = now => { if (t0===null) t0 = now; const k = Math.min(1,(now-t0)/MORPH_MS); draw(easeT(k)); if (k<1) rafId = requestAnimationFrame(tick); };
+  const tick = now => { if (t0===null) t0 = now; const k = Math.min(1,(now-t0)/MORPH_MS); draw(k); if (k<1) rafId = requestAnimationFrame(tick); };
   const morphTimer = setTimeout(() => { rafId = requestAnimationFrame(tick); }, MORPH_AT);
   // 1. Stan arrives: the real Stan mark
   anims.push(A(q('.intro-lock'), [{opacity:0, transform:'translateY(16px) scale(.97)', filter:'blur(8px)'}, {opacity:1, transform:'none', filter:'blur(0)'}], {duration:1100, delay:200}));
   // 2. hand the real mark to the traced copy underneath (identical, so it is invisible)
   anims.push(A(q('.i-real'), [{opacity:1}, {opacity:0}], {duration:250, delay:1550, easing:'linear'}));
   // 3. the mark breathes while the S bends into the C
-  anims.push(A(q('.intro-mark'), [{transform:'scale(1)'}, {transform:'scale(1.06)', offset:.5}, {transform:'scale(1)'}], {duration:MORPH_MS+200, delay:MORPH_AT-100, easing:INOUT}));
+  anims.push(A(q('.intro-mark'), [{transform:'scale(1)'}, {transform:'scale(1.06)', offset:.5}, {transform:'scale(1)'}], {duration:MORPH_MS+300, delay:MORPH_AT-150, easing:INOUT}));
   // 4. Clan glides out next to Stan
-  anims.push(A(q('.intro-word b'), [{maxWidth:'0em', opacity:0, clipPath:'inset(0 100% 0 0)'}, {maxWidth:'3.6em', opacity:1, clipPath:'inset(0 0 0 0)'}], {duration:1200, delay:3800, easing:INOUT}));
+  anims.push(A(q('.intro-word b'), [{maxWidth:'0em', opacity:0, clipPath:'inset(0 100% 0 0)'}, {maxWidth:'3.6em', opacity:1, clipPath:'inset(0 0 0 0)'}], {duration:1200, delay:4000, easing:INOUT}));
   // 5. tagline
-  anims.push(A(q('.intro-tag'), [{opacity:0, transform:'translateY(10px)'}, {opacity:1, transform:'none'}], {duration:900, delay:4800}));
+  anims.push(A(q('.intro-tag'), [{opacity:0, transform:'translateY(10px)'}, {opacity:1, transform:'none'}], {duration:900, delay:5000}));
   // 6. hand off to the page
-  const exitAt = 6400;
+  const exitAt = 6600;
   anims.push(A(q('.intro-in'), [{opacity:1, transform:'none'}, {opacity:0, transform:'translateY(-12px) scale(.96)'}], {duration:700, delay:exitAt, easing:IN}));
   const bg = A(intro, [{opacity:1}, {opacity:0}], {duration:900, delay:exitAt+350, easing:INOUT});
   pageEls.forEach((el,i) => anims.push(A(el, [{opacity:0, transform:'translateY(18px)'}, {opacity:1, transform:'none'}], {duration:1000, delay:exitAt+450+i*120})));
