@@ -47,6 +47,7 @@ jobs:
           curl -fsSL "https://images.unsplash.com/photo-1627244714766-94dab62ed964?auto=format&fm=jpg&fit=crop&w=1200&q=75" -o assets/photos/design.jpg
           curl -fsSL "https://images.unsplash.com/photo-1758273239210-59fea02475eb?auto=format&fm=jpg&fit=crop&w=1200&q=75" -o assets/photos/other.jpg
           curl -fsSL "https://images.unsplash.com/photo-1781606989379-5c62ed674c41?auto=format&fm=jpg&fit=crop&w=1200&q=75" -o assets/photos/call.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/you.jpg
           ls -la assets/faces assets/photos
       - name: Commit
         run: |
