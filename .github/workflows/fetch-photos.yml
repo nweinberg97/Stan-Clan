@@ -48,6 +48,19 @@ jobs:
           curl -fsSL "https://images.unsplash.com/photo-1758273239210-59fea02475eb?auto=format&fm=jpg&fit=crop&w=1200&q=75" -o assets/photos/other.jpg
           curl -fsSL "https://images.unsplash.com/photo-1781606989379-5c62ed674c41?auto=format&fm=jpg&fit=crop&w=1200&q=75" -o assets/photos/call.jpg
           curl -fsSL "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fm=jpg&fit=crop&crop=faces&w=240&h=240&q=80" -o assets/faces/you.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fm=jpg&fit=crop&w=900&q=75" -o assets/photos/prod-course.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fm=jpg&fit=crop&w=900&q=75" -o assets/photos/prod-coaching.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fm=jpg&fit=crop&w=900&q=75" -o assets/photos/prod-guide.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1589903308904-1010c2294adc?auto=format&fm=jpg&fit=crop&w=900&q=75" -o assets/photos/podcast.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1785581778868-79100f7fe56c?auto=format&fm=jpg&fit=crop&w=900&q=75" -o assets/photos/brand.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1510851896000-498520af2236?auto=format&fm=jpg&fit=crop&w=900&q=75" -o assets/photos/night.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1758520145408-dedb359d1c49?auto=format&fm=jpg&fit=crop&w=900&q=75" -o assets/photos/latenight.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?auto=format&fm=jpg&fit=crop&w=900&q=75" -o assets/photos/morning.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fm=jpg&fit=crop&w=900&q=75" -o assets/photos/money.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1516397281156-ca07cf9746fc?auto=format&fm=jpg&fit=crop&w=900&q=75" -o assets/photos/coursebuild.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fm=jpg&fit=crop&w=900&q=75" -o assets/photos/launch.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1437419764061-2473afe69fc2?auto=format&fm=jpg&fit=crop&w=900&q=75" -o assets/photos/gear.jpg
+          curl -fsSL "https://images.unsplash.com/photo-1500989145603-8e7ef71d639e?auto=format&fm=jpg&fit=crop&w=900&q=75" -o assets/photos/latte.jpg
           ls -la assets/faces assets/photos
       - name: Commit
         run: |
