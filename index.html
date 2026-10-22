@@ -45,6 +45,54 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
 .topnav .for{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);border:1.5px solid var(--line);border-radius:999px;padding:6px 12px}
 .wrap{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:clamp(48px,7vw,110px);align-items:start}
 .story{min-width:0}
+.wrap{align-items:center;min-height:calc(100vh - 110px)}
+.stepper{min-width:0;display:flex;flex-direction:column;gap:22px;max-width:540px}
+.step-n{font-size:15px;font-weight:700;letter-spacing:.14em;color:var(--purple)}
+.step-n span{color:var(--muted);opacity:.6}
+.stepper h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,5vw,64px);line-height:1.02;letter-spacing:-.025em;margin:0;text-wrap:balance}
+.stepper h1 span{color:var(--purple)}
+.step-p{font-size:20px;line-height:1.5;color:var(--muted);margin:0;max-width:44ch;min-height:3em}
+.stepper .fade{animation:stepIn .35s ease-out}
+@keyframes stepIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.bars{display:flex;gap:6px}
+.bars button{width:36px;height:6px;border-radius:3px;background:var(--line);padding:0}
+.bars button.on{background:var(--purple)}
+.bars button:hover{background:var(--purple-deep)}
+.step-nav{display:flex;align-items:center;gap:10px;margin-top:6px}
+.next{padding:13px 26px;border-radius:999px;background:var(--purple);color:var(--on-purple);font-weight:700;font-size:15px}
+.next:hover{background:var(--purple-deep)}
+.step-nav .np{padding:12px 20px;font-size:14px}
+.keys{font-size:12.5px;color:var(--muted);margin-left:6px}
+.why{background:var(--surface);padding-block:80px;margin-top:40px;margin-left:calc(-1 * max(16px, env(safe-area-inset-left, 0px)));margin-right:calc(-1 * max(16px, env(safe-area-inset-right, 0px)));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.why-in{max-width:1160px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+.why h2{font-family:var(--display);font-weight:800;font-size:clamp(28px,3.4vw,42px);line-height:1.08;letter-spacing:-.02em;margin:0;max-width:20ch;text-wrap:balance}
+.why .stat,.why .pill{background:var(--bg)}
+.why .src{margin:0;font-size:12.5px;color:var(--muted)}
+.disclaimer.foot{margin-top:18px;max-width:70ch}
+/* challenge + feedback in the phone */
+.challenge .ch-top{display:flex;flex-direction:column;gap:3px}
+.ch-badge{align-self:flex-start;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--teal);color:var(--teal-ink);padding:3px 8px;border-radius:999px}
+.challenge b{font-size:15px}
+.challenge small{color:var(--muted);font-size:12px}
+.ch-bar{height:8px;border-radius:4px;background:var(--surface-2);overflow:hidden}
+.ch-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--purple),var(--teal));border-radius:4px;transition:width .5s}
+.ch-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ch-row .faces{display:flex}
+.ch-row .faces .av{width:26px;height:26px;font-size:9px;border:2px solid var(--surface)}
+.ch-row .faces .av+.av{margin-left:-8px}
+.ch-row small{color:var(--muted);font-size:12px;font-weight:700}
+.post{background:var(--surface);border-radius:16px;padding:12px 14px;display:flex;flex-direction:column;gap:10px}
+.post .who{display:flex;gap:10px;align-items:center;font-size:13px}
+.post .who .av{width:32px;height:32px}
+.post .who small{display:block;color:var(--muted);font-size:11.5px}
+.post .media{border-radius:12px;aspect-ratio:16/8;background-size:cover;background-position:center;position:relative}
+.post .media::after{content:"";position:absolute;inset:0;border-radius:12px;background:linear-gradient(180deg,transparent 50%,rgba(10,10,40,.45))}
+.post .media span{position:absolute;left:10px;bottom:8px;z-index:1;color:#fff;font-size:12px;font-weight:700}
+.post q{font-size:13.5px;line-height:1.4;quotes:none}
+.post .acts{display:flex;gap:6px}
+.post .acts .mini.on{background:var(--teal);color:var(--teal-ink)}
+.post .last{font-size:12px;color:var(--muted);background:var(--bg);border-radius:10px;padding:7px 10px}
+.post .last b{color:var(--ink)}
 .sec{min-height:82vh;display:flex;flex-direction:column;justify-content:center;gap:20px;padding-block:72px;max-width:600px}
 .sec.hero{min-height:calc(100vh - 140px);padding-block:40px}
 .sec.foot-note{min-height:0;padding-block:40px 20px}
@@ -102,7 +150,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
 .disclaimer{font-size:12.5px;color:var(--muted)}
 
 /* Phone */
-.phone-col{display:flex;flex-direction:column;gap:12px;align-items:center;position:sticky;top:max(20px,calc(50vh - 420px))}
+.phone-col{display:flex;flex-direction:column;gap:12px;align-items:center}
 .hint{font-size:12.5px;color:var(--muted);text-align:center;display:flex;gap:10px;align-items:center}
 .hint button{color:var(--purple);font-weight:700;text-decoration:underline;text-underline-offset:3px}
 .phone{width:min(390px,100%);height:800px;border-radius:52px;background:var(--frame);padding:12px;box-shadow:0 30px 60px -20px rgba(30,20,90,.35)}
@@ -177,6 +225,10 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
 .cluster{position:relative;height:170px;flex:none}
 .cluster span{position:absolute;width:36px;height:36px;border-radius:50%;left:50%;top:50%;margin:-18px;overflow:hidden;border:2px solid var(--surface);box-shadow:0 2px 6px rgba(20,20,80,.15);transition:transform 1.1s cubic-bezier(.2,.8,.2,1),opacity .5s}
 .cluster span img{width:100%;height:100%;object-fit:cover;display:block}
+.you-av{box-shadow:0 0 0 2.5px var(--teal)}
+.cluster .you{overflow:visible;border:0;box-shadow:0 0 0 3px var(--teal),0 4px 12px rgba(20,20,80,.2)}
+.cluster .you img{border-radius:50%}
+.cluster .you b{position:absolute;left:50%;bottom:-9px;transform:translateX(-50%);background:var(--teal);color:var(--teal-ink);font-size:9.5px;padding:1px 7px;border-radius:999px}
 .cluster .you{width:48px;height:48px;margin:-24px;background:var(--teal);color:var(--teal-ink);z-index:2;font-size:11px;font-weight:700;display:grid;place-items:center}
 
 .card{background:var(--surface);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:12px}
@@ -284,12 +336,10 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
 
 @media (max-width:960px){
   .wrap{grid-template-columns:minmax(0,1fr);gap:28px}
-  .phone-col{position:static;order:2;margin-bottom:24px}
-  .story{display:contents}
-  .sec.hero{order:1}
-  #flow{order:3}
-  .sec.foot-note{order:4}
-  .scroll-hint{display:none}
+  .wrap{min-height:0}
+  .stepper{max-width:none}
+  .keys{display:none}
+  .step-p{min-height:0}
   .sec{min-height:0;padding-block:44px;max-width:none}
   .sec.hero{min-height:0}
 }
@@ -305,26 +355,61 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
   .phone{height:760px;border-radius:44px;padding:8px}
   .host{border-radius:37px}
 }
+
+.intro{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;animation:introOut .55s ease-in 2.75s both;cursor:pointer}
+.intro-lock{display:flex;align-items:center;gap:16px}
+.intro-mark{position:relative;width:88px;height:88px;flex:none;animation:introIn .5s cubic-bezier(.2,.8,.2,1) both}
+.intro-mark img,.intro-mark .i-clan,.i-disc{position:absolute;inset:0;width:100%;height:100%}
+.i-disc{border-radius:50%;background:#6355FF}
+.intro-mark .i-clan svg{width:100%;height:100%;display:block}
+.i-full{animation:fullOut .35s ease-out .75s both}
+.i-top{clip-path:inset(0 0 50% 0);animation:topMove 1s cubic-bezier(.6,0,.2,1) .75s both}
+.i-clan{opacity:0;animation:clanIn .45s cubic-bezier(.2,.8,.2,1) 1.25s both}
+.intro-word{font-family:var(--display);font-weight:800;font-size:64px;letter-spacing:-.025em;color:var(--ink);display:flex;white-space:nowrap;animation:introIn .5s cubic-bezier(.2,.8,.2,1) .08s both}
+.intro-word b{color:var(--purple);display:inline-block;overflow:hidden;max-width:0;opacity:0;animation:wordIn .6s cubic-bezier(.2,.8,.2,1) 1.6s both}
+.intro-tag{font-size:18px;color:var(--muted);opacity:0;animation:tagIn .5s ease-out 2.05s both}
+@keyframes introIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
+@keyframes fullOut{to{opacity:0}}
+@keyframes topMove{0%{transform:none;opacity:1}55%{transform:translate(4%,16%) rotate(-28deg);opacity:1}100%{transform:translate(4%,16%) rotate(-28deg);opacity:0}}
+@keyframes clanIn{from{opacity:0;transform:scale(.9) rotate(-14deg)}to{opacity:1;transform:none}}
+@keyframes wordIn{from{max-width:0;opacity:0}to{max-width:4.2em;opacity:1}}
+@keyframes tagIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes introOut{to{opacity:0;visibility:hidden}}
+@media (max-width:600px){.intro-word{font-size:40px}.intro-mark{width:56px;height:56px}.intro-lock{gap:10px}.intro-tag{font-size:15px}}
+@media (prefers-reduced-motion:reduce){.intro{display:none}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 
 
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro-lock">
+    <span class="intro-mark">
+      <span class="i-disc"></span>
+      <img class="i-full" src="assets/stan-glyph.png" alt="">
+      <img class="i-top" src="assets/stan-glyph.png" alt="">
+      <span class="i-clan"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M42.66 23.30A13 13 0 1 0 42.66 40.70" fill="none" stroke="#fff" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 19v-6M33 45v6" fill="none" stroke="#fff" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </span>
+    <span class="intro-word">Stan<b>&nbsp;Clan</b></span>
+  </div>
+  <div class="intro-tag">The launchpad for every creator</div>
+</div>
 <header class="topnav"><div class="topnav-in">
   <span class="clan-lockup"><span class="cm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#6355FF"/><path d="M42.66 23.30A13 13 0 1 0 42.66 40.70" fill="none" stroke="#fff" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 19v-6M33 45v6" fill="none" stroke="#fff" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="wm">Stan <b>Clan</b></span></span>
   <span class="for">Concept</span>
 </div></header>
 <div class="wrap">
-  <main class="story">
-    <section class="sec hero">
-      <div class="eyebrow">A concept for Stan</div>
-      <h1>What if everyone using Stan had a <span>Launchpad?</span></h1>
-      <p class="lede">Launchpad gives 30 teams peers at their exact stage. Stan Clan gives that to every creator on Stan.</p>
-      <p class="scroll-hint">Scroll to walk through the idea. The phone follows along, and everything on it is tappable.</p>
-    </section>
-    <div id="flow"></div>
-    <footer class="sec foot-note"><p class="disclaimer"><strong style="color:var(--ink)">Why I made this:</strong> I&#39;m sharing the idea because I think it would be really cool if Stan built it. No ask, no strings.<br><br>Independent concept by Nitai Weinberg, inspired by Launchpad. Not an official Stan product. Every person, message and number in the phone is invented for the demo. Photos and headshots from <a href="https://unsplash.com" style="color:inherit">Unsplash</a>, used under the Unsplash License.</p></footer>
+  <main class="stepper" aria-live="polite">
+    <div class="step-n" id="step-n">01 <span>/ 09</span></div>
+    <h1 id="step-h"></h1>
+    <p class="step-p" id="step-p"></p>
+    <div class="bars" id="bars" role="tablist" aria-label="Tour steps"></div>
+    <div class="step-nav">
+      <button class="np" id="prev">Back</button>
+      <button class="next" id="next">Next</button>
+      <span class="keys">or use your arrow keys</span>
+    </div>
   </main>
 
   <aside class="phone-col">
@@ -373,6 +458,15 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
               </div>
               <button class="cta" id="dropin">Drop in →</button>
             </div>
+            <div class="lbl">This week&#39;s challenge</div>
+            <div class="card challenge" id="challenge">
+              <div class="ch-top"><span class="ch-badge">Week 2</span><b>Post your offer 3 times</b><small>Ends Friday · finishers get featured at Demo Friday</small></div>
+              <div class="ch-bar"><i id="ch-fill" style="width:66%"></i></div>
+              <div class="ch-row"><div class="faces" id="ch-faces"></div><small id="ch-count">8 of 12 are in</small></div>
+              <button class="cta sm" id="ch-join">I&#39;m in</button>
+            </div>
+            <div class="lbl" id="feedback-lbl">Feedback &amp; collabs</div>
+            <div class="list" id="feedback"></div>
             <div class="lbl">Your cohort <span style="text-transform:none;letter-spacing:0;font-weight:500">Tap anyone</span></div>
             <div class="members" id="members"></div>
             <div class="lbl">Demo Friday · wins <button id="share-win">+ Share a win</button></div>
@@ -478,6 +572,27 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
   </aside>
 </div>
 
+<section class="why">
+  <div class="why-in">
+    <div class="eyebrow">Why Stan should build it</div>
+    <h2>Creators aren&#39;t struggling with content. They&#39;re struggling alone.</h2>
+    <div class="stats">
+      <div class="stat"><b>43%</b><span>feel isolated, despite being constantly online</span></div>
+      <div class="stat"><b>62%</b><span>report regular burnout from the work</span></div>
+      <div class="stat"><b>89%</b><span>have no access to mental health resources</span></div>
+      <div class="stat"><b>35%</b><span>have been depressed because of the work</span></div>
+    </div>
+    <p class="src">Creators 4 Mental Health, 2026 survey of 500+ full and part-time creators.</p>
+    <div class="pillars">
+      <div class="pill"><img class="pi" src="assets/stanley-mascot.png" alt=""><b>Stanley</b><span>How you grow</span></div>
+      <div class="pill"><img class="pi" src="assets/stan-mark.png" alt=""><b>Stan Store</b><span>How you monetize</span></div>
+      <div class="pill us"><span class="pi"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#fff"/><path d="M42.66 23.30A13 13 0 1 0 42.66 40.70" fill="none" stroke="#6355FF" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 19v-6M33 45v6" fill="none" stroke="#6355FF" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Stan Clan</b><span>Your launchpad</span></div>
+    </div>
+    <p class="disclaimer foot"><strong style="color:var(--ink)">Why I made this:</strong> I&#39;m sharing the idea because I think it would be really cool if Stan built it. No ask, no strings.<br><br>Independent concept by Nitai Weinberg, inspired by Launchpad. Not an official Stan product. Every person, message and number in the phone is invented for the demo. Photos and headshots from <a href="https://unsplash.com" style="color:inherit">Unsplash</a>, used under the Unsplash License.</p>
+  </div>
+</section>
+
+
 <script>
 (function(){
 const $ = s => document.querySelector(s);
@@ -486,6 +601,7 @@ const COLORS = ['#E8735A','#3E9BD6','#C25BB5','#2FAE84','#D69B2D','#6A5AE6','#E2
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const initials = n => n.split(' ').map(w=>w[0]).join('').slice(0,2);
 const FACES = {"Maya R.": "1534528741775-53994a69daeb", "Priya S.": "1777670870165-b393d06aa3c4", "Tess A.": "1758600433991-933fb663161f", "Jada P.": "1554151228-14d9def656e4", "Aisha N.": "1786677772080-f908094ea342", "Clara V.": "1601412436009-d964bd02edbc", "Mei L.": "1777670867722-b3aea4bba1f3", "Nadia F.": "1674932668403-33398b81c92f", "Hana Y.": "1581841064838-a470c740e8ee", "Ola B.": "1765506255227-2feaa9bd58ec", "Grace W.": "1494790108377-be9c29b29330", "Iris K.": "1580489944761-15a19d654956", "Bea C.": "1701096351544-7de3c7fa0272", "Ivy Z.": "1611432579699-484f7990b127", "Rosa M.": "1745434159123-4908d0b9df94", "Devon K.": "1611695434398-4f4b330623e6", "Luis M.": "1629747490241-624f07d70e1e", "Owen B.": "1535713875002-d1d0cf377fde", "Jonah P.": "1600603406200-5b2a104684ac", "Ren T.": "1499996860823-5214fcc65f8f", "Sam O.": "1587397845856-e6cf49176c70", "Nate H.": "1593757107729-eae8bcc74f8e", "Marco L.": "1695737679868-de7eb09df3d0", "Ben T.": "1614321375197-c5083895b054", "Eli G.": "1681097561932-36d0df02b379", "Kofi D.": "1604494747044-2e080876c5f1", "Theo R.": "1647593782884-1a6779139eb5", "Dan W.": "1584984647264-7e6f4e6d6b91"};
+const YOU_AV = '<span class="av you-av" style="background:var(--teal);color:var(--teal-ink)">You<img class="face" src="assets/faces/you.jpg" alt="" onerror="this.remove()"></span>';
 const face = n => FACES[n] ? `<img class="face" src="assets/faces/${FACES[n]}.jpg" alt="" onerror="this.remove()">` : '';
 const avHtml = (name, i, cls='') => `<span class="av ${cls}" style="background:${COLORS[i%COLORS.length]}" aria-hidden="true">${esc(initials(name))}${face(name)}</span>`;
 
@@ -619,7 +735,7 @@ function renderMatch(){
   const N = NICHES[niche];
   const sigs = [['Niche','From your answer: '+N.label],['Stage','From your answer: '+stage[1]],['Your store',N.product],['Posting rhythm','About 4 posts a week, mostly evenings'],['Time zone','Pacific, so rooms you can actually make']];
   $('#signals').innerHTML = sigs.map(([k,v]) => `<li><span class="check"></span><span><span class="k">${k}</span>${esc(v)}</span></li>`).join('');
-  let dots = '<span class="you">You</span>';
+  let dots = '<span class="you"><img src="assets/faces/you.jpg" alt="" onerror="this.remove()"><b>You</b></span>';
   const pool = [...N.people.map(p=>p[0]), ...Object.values(NICHES).flatMap(n=>n.people.map(p=>p[0])).filter(n=>!N.people.some(p=>p[0]===n))];
   for (let i=0;i<11;i++){ const a=(i/11)*Math.PI*2, nm=pool[i]; dots += `<span data-a="${a}" style="background:${COLORS[i%COLORS.length]};transform:translate(${Math.cos(a)*150}px,${Math.sin(a)*80}px);opacity:.2">${FACES[nm]?`<img src="assets/faces/${FACES[nm]}.jpg" alt="">`:''}</span>`; }
   $('#cluster').innerHTML = dots;
@@ -649,7 +765,7 @@ function renderWins(){
   $('#wins').innerHTML = all.map((w,k) => {
     const i = w.me ? 5 : N.people.findIndex(p=>p[0]===w.n);
     const key = w.n + w.w; const on = claps[key]; const count = w.c + (on?1:0);
-    return `<div class="win">${w.me ? '<span class="av" style="background:var(--teal);color:var(--teal-ink)">You</span>' : avHtml(w.n, i)}<div class="grow"><b>${esc(w.me?'You':w.n)}</b> ${esc(w.w)}<small>${esc(w.t)}</small></div>${w.me?'':`<button class="clap${on?' on':''}" data-clap="${esc(key)}" aria-pressed="${!!on}">Cheer ${count}</button>`}</div>`;
+    return `<div class="win">${w.me ? YOU_AV : avHtml(w.n, i)}<div class="grow"><b>${esc(w.me?'You':w.n)}</b> ${esc(w.w)}<small>${esc(w.t)}</small></div>${w.me?'':`<button class="clap${on?' on':''}" data-clap="${esc(key)}" aria-pressed="${!!on}">Cheer ${count}</button>`}</div>`;
   }).join('');
   $$('#wins [data-clap]').forEach(b => b.addEventListener('click', () => { claps[b.dataset.clap] = !claps[b.dataset.clap]; renderWins(); }));
 }
@@ -714,7 +830,7 @@ function renderRoom(){
   $('#room-sub').textContent = `${people.length+1} in the room · you joined as a listener`;
   const roster = people.map((p,i) => ({n:p[0], r: i<3?'Host':'Listener', i}));
   roster.push({n:'You', r:'Listener', you:true});
-  $('#stage').innerHTML = roster.map(p => `<button class="spk" data-n="${esc(p.n)}" ${p.you?'':`data-pidx="${p.i}"`}>${p.you?'<span class="av" style="background:var(--teal);color:var(--teal-ink)">You</span>':avHtml(p.n, p.i + (other?CLANS.indexOf(other):0))}<span class="nm">${esc(p.you?'You':p.n.split(' ')[0])}</span><span class="rl">${p.r}</span></button>`).join('');
+  $('#stage').innerHTML = roster.map(p => `<button class="spk" data-n="${esc(p.n)}" ${p.you?'':`data-pidx="${p.i}"`}>${p.you?YOU_AV:avHtml(p.n, p.i + (other?CLANS.indexOf(other):0))}<span class="nm">${esc(p.you?'You':p.n.split(' ')[0])}</span><span class="rl">${p.r}</span></button>`).join('');
   $$('#stage [data-pidx]').forEach(b => b.addEventListener('click', () => { if (!other) openPerson(+b.dataset.pidx); else toast(`${b.dataset.n} is a host in ${other.n}.`); }));
   $('#chat').innerHTML = '<div class="lbl">Room chat</div><div class="cm sys">You dropped in. Nobody gets notified, so stay as long as you like.</div>';
   $('#hand').textContent = 'Raise hand'; $('#hand').classList.remove('active');
@@ -805,111 +921,114 @@ $$('[data-back]').forEach(b => b.addEventListener('click', back));
 $$('[data-tab]').forEach(b => b.addEventListener('click', () => go(b.dataset.tab)));
 $$('[data-go]').forEach(b => b.addEventListener('click', () => { inRoom = null; go(b.dataset.go); }));
 $$('[data-toast]').forEach(b => b.addEventListener('click', () => toast(b.dataset.toast)));
-$('#restart').addEventListener('click', () => { winsAdded = []; claps = {}; joined = new Set(['$0–1K/mo Club','First Product Launch','Weeknight Builders']); lastDriven = null; startOnboarding(); window.scrollTo({top:0,behavior:'smooth'}); });
+$('#restart').addEventListener('click', () => { resetAll(); setStep(0); });
 
 /* ---------------- Deck tour ---------------- */
-const CH = [
-  {k:'Problem', screen:null, html:`
-    <div class="eyebrow">The real problem</div>
-    <h2>Stanley will make your best creators better. <em>It won't fix the reason most of them quit.</em></h2>
-    <div class="stats">
-      <div class="stat"><b>43%</b><span>feel isolated, despite being constantly online</span></div>
-      <div class="stat"><b>62%</b><span>report regular burnout from the work</span></div>
-      <div class="stat"><b>89%</b><span>have no access to mental health resources</span></div>
-      <div class="stat"><b>35%</b><span>have been depressed because of the work</span></div>
-    </div>
-    <p class="src">Creators 4 Mental Health, 2026 survey of 500+ full and part-time creators. Creators aren't struggling with content. They're struggling alone.</p>`},
-  {k:'Who it\'s for', screen:'onboard', cta:'Start as a new creator', html:`
-    <div class="eyebrow">Who Stanley actually helps</div>
-    <h2>AI content tools reward people who already know their niche.</h2>
-    <figure class="figure"><img src="${photo('fitness',1200)}" alt="A creator filming a video on a phone tripod" loading="lazy"><figcaption>Photo: ${UNSPLASH.fitness[1]} / Unsplash</figcaption></figure>
-    <div class="duo">
-      <div class="a"><small>Already winning</small><b>The top of your base</b><span>Confident in their voice, clear on their niche. Stanley makes them faster. They were going to make it anyway.</span></div>
-      <div class="b"><small>The real growth lever</small><b>Everyone else</b><span>Just starting out, unsure of their niche, no one around them doing the same thing. Most of your base.</span></div>
-    </div>
-    <p>The phone starts where "everyone else" starts: a few months in, alone, with a store and no one to ask.</p>`},
-  {k:'Matching', screen:'match', cta:'Watch the match', html:`
-    <div class="eyebrow">The matching moment</div>
-    <h2>Two questions, and someone's matched.</h2>
-    <p>No profile to fill out and no community to go searching for. Stan already knows each creator's niche, stage, store and posting rhythm better than any matching algorithm could guess. The questions just confirm it.</p>
-    <div class="feats">
-      <div class="feat"><b>Niche</b><span>From the store and the creator's answer</span></div>
-      <div class="feat"><b>Stage</b><span>Months creating, first sale, revenue band</span></div>
-      <div class="feat"><b>Vibe</b><span>Posting rhythm, format, tone</span></div>
-      <div class="feat"><b>Time zone</b><span>So live rooms land when people are awake</span></div>
-    </div>`},
-  {k:'Your cohort', screen:'home', cta:'Open your clan', html:`
-    <div class="eyebrow">Stan Clan</div>
-    <h2>A private, AI-matched network for every person building a business with Stan.</h2>
-        <figure class="figure"><img src="${photo('other',1200)}" alt="A young creator filming herself" loading="lazy"><figcaption>Photo: ${UNSPLASH.other[1]} / Unsplash</figcaption></figure>
-    <p>Not a course. Not a feed. <strong style="color:var(--purple)">A small group of peers at your exact stage</strong>, like a Launchpad cohort that never ends.</p>
-    <div class="feats">
-      <div class="feat"><b>AI-matched clans</b><span>Matched by niche, stage and vibe, using data Stan already has.</span></div>
-      <div class="feat"><b>Drop-in, not scheduled</b><span>Office-hours energy. Pop in when you need it.</span></div>
-      <div class="feat"><b>Private and invite-only</b><span>Small, safe groups. Max 3 clans each. Trust first.</span></div>
-      <div class="feat"><b>Demo Friday</b><span>Launchpad has pitch day. Every clan shares its wins weekly.</span></div>
-    </div>`},
-  {k:'Drop in', screen:'room', cta:'Drop into office hours', html:`
-    <div class="eyebrow">What it could look like</div>
-    <h2>Dropping in never feels like walking into an empty room.</h2>
-    <figure class="figure"><img src="${photo('call',1200)}" alt="A creator on a video call with her peers" loading="lazy"><figcaption>Photo: ${UNSPLASH.call[1]} / Unsplash</figcaption></figure>
-    <p>Every clan shows who's active right now. Join as a listener, read the live captions, chat, or raise your hand to talk. Leave whenever. Nobody gets notified.</p>
-    <div class="feats">
-      <div class="feat"><b>Listen first</b><span>New creators can lurk until they're ready.</span></div>
-      <div class="feat"><b>Hosted by peers</b><span>Three members host each week. Nobody is selling a course.</span></div>
-    </div>`},
-  {k:'Why Stan', screen:'dir', cta:'Browse all 15 clans', html:`
-    <div class="eyebrow">The gap in the market</div>
-    <h2>Everyone's built community. No one's built <em>peers.</em></h2>
-    <div class="cmp">
-      <div><b>Skool</b><span>A paid program. Someone more advanced teaches you. Top-down, not peer-to-peer.</span></div>
-      <div><b>Discord</b><span>Unstructured, noisy, unsafe by default. No curation, no accountability.</span></div>
-      <div class="us"><b>Stan Clan</b><span>Private, AI-matched, built for creator-entrepreneurs, because Stan already knows exactly who they are.</span></div>
-    </div>
-    <p>Trust, the data, the audience and the brand. Stan already has all four.</p>`},
-  {k:'Three pillars', screen:'stanley', cta:'Tap through the tabs', html:`
-    <div class="eyebrow">The complete picture</div>
-    <h2>One platform. Three reasons to never leave.</h2>
-    <p>Stanley and Stan Store give creators a reason to log in. Clan gives them a reason to stay. In the phone, Stanley and the Store both hand off to the cohort.</p>
-    <div class="pillars">
-      <button class="pill" data-pgo="stanley"><img class="pi" src="assets/stanley-mascot.png" alt=""><small>01</small><b>Stanley</b><span>How you grow</span></button>
-      <button class="pill" data-pgo="store"><img class="pi" src="assets/stan-mark.png" alt=""><small>02</small><b>Stan Store</b><span>How you monetize</span></button>
-      <button class="pill us" data-pgo="home"><span class="pi"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#fff"/><path d="M42.66 23.30A13 13 0 1 0 42.66 40.70" fill="none" stroke="#6355FF" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 19v-6M33 45v6" fill="none" stroke="#6355FF" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><small>03</small><b>Stan Clan</b><span>How you belong</span></button>
-    </div>`},
-  {k:'How it ships', screen:null, html:`
-    <div class="eyebrow">How this ships</div>
-    <h2>No rebuild required.</h2>
-    <ol class="ship">
-      <li><b>Invite-only beta: 200 creators</b>Hand-picked across niches to prove the matching works.</li>
-      <li><b>Bundled, not sold separately</b>A retention layer inside existing plans. The moat, not a line item.</li>
-      <li><b>Group chat infra you already have</b>Stan's social integrations do the plumbing. This is a new front door.</li>
-      <li><b>Open it up once it's proven</b>Scale to every creator once retention lift is real, not assumed.</li>
-    </ol>
-    <div class="quote">Features get copied. Belonging doesn't. Retention is won with another reason to stay.</div>`}
+const FEED = {
+  fitness:[['Luis M.','First offer post is live. Be honest, does the hook land in the first 2 seconds?','fitness','Reel · 2h ago',4],['Tess A.','Testing a $49 mobility session. Would you click this thumbnail?','call','Post · 5h ago',7]],
+  newsletter:[['Clara V.','New subject line test. Which one would you open?','newsletter','Draft · 1h ago',5],['Sam O.','Looking for a swap partner around 200 subs. Climbing, outdoors, travel?','other','Collab · 4h ago',3]],
+  food:[['Ola B.','Jollof reel part 2. Hook feels slow to me, thoughts?','food','Reel · 3h ago',9],['Hana Y.','Ebook cover options. Pick one before I launch Friday.','design','Post · 6h ago',6]],
+  design:[['Ivy Z.','First planner listing. Is $15 right for this?','design','Listing · 2h ago',5],['Theo R.','Want to co-launch a resume + cover letter bundle with anyone?','newsletter','Collab · 5h ago',2]],
+  other:[['Ola B.','Posted my store link for the first time. Roast my bio?','other','Post · 1h ago',8],['Sam O.','Looking for someone to trade feedback with weekly.','call','Collab · 4h ago',3]]
+};
+let chIn = false, collabs = {}, comments = {};
+function renderChallenge(){
+  const N = NICHES[niche];
+  $('#ch-faces').innerHTML = N.people.slice(0,5).map((p,i)=>avHtml(p[0],i)).join('') + (chIn ? YOU_AV : '');
+  $('#ch-count').textContent = `${chIn?9:8} of 12 are in`;
+  $('#ch-fill').style.width = chIn ? '75%' : '66%';
+  $('#ch-join').textContent = chIn ? 'You\'re in. Post #1 of 3 →' : 'I\'m in';
+}
+$('#ch-join').addEventListener('click', () => {
+  if (!chIn){ chIn = true; renderChallenge(); toast(`You joined the challenge. ${NICHES[niche].people[0][0].split(' ')[0]} and 7 others are in.`); }
+  else { go('stanley'); toast('Stanley can draft post #1 for you.'); }
+});
+function renderFeed(){
+  const N = NICHES[niche], F = FEED[niche] || FEED.other;
+  $('#feedback').innerHTML = F.map(([n,t,img,meta,c],k) => {
+    const i = Math.max(0, N.people.findIndex(p=>p[0]===n));
+    const mine = comments[n];
+    return `<div class="post"><div class="who">${avHtml(n,i)}<div><b>${esc(n)}</b><small>${esc(meta)}</small></div></div>
+      <div class="media" style="background-color:${COLORS[i%COLORS.length]};background-image:url(${photo(img)})"><span>${esc(meta.split(' ·')[0])}</span></div>
+      <q>${esc(t)}</q>
+      ${mine ? `<div class="last"><b>You</b> ${esc(mine)}</div>` : ''}
+      <div class="acts"><button class="mini${mine?' on':''}" data-comment="${esc(n)}">Comment · ${c + (mine?1:0)}</button><button class="mini${collabs[n]?' on':''}" data-collab="${esc(n)}">${collabs[n]?'Collab requested':'Collab'}</button></div></div>`;
+  }).join('');
+  $$('#feedback [data-comment]').forEach(b => b.addEventListener('click', () => openComment(b.dataset.comment)));
+  $$('#feedback [data-collab]').forEach(b => b.addEventListener('click', () => {
+    collabs[b.dataset.collab] = !collabs[b.dataset.collab]; renderFeed();
+    if (collabs[b.dataset.collab]) toast(`Sent ${b.dataset.collab.split(' ')[0]} a collab request.`);
+  }));
+}
+function openComment(n){
+  openSheet(`<h3>Comment for ${esc(n.split(' ')[0])}</h3><div style="color:var(--muted);font-size:13px">Peers at your stage give the most useful feedback. Be kind, be specific.</div>
+    <label for="cm-text" style="position:absolute;left:-9999px">Your comment</label>
+    <textarea id="cm-text">Hook is strong! I'd show the price sooner.</textarea>
+    <div class="btns"><button class="btn2" data-close>Cancel</button><button class="btn2 p" id="cm-post">Post comment</button></div>`);
+  $('#cm-post').addEventListener('click', () => {
+    const v = $('#cm-text').value.trim(); if (!v) return;
+    comments[n] = v; closeSheet(); renderFeed(); toast(`${n.split(' ')[0]} will see your comment.`);
+  });
+}
+const _renderHome = renderHome;
+renderHome = function(){ _renderHome(); renderChallenge(); renderFeed(); };
+
+function scrollPhoneTo(id){
+  const el = document.getElementById(id), body = $('#s-home .body');
+  if (el && body) body.scrollTo({top: el.offsetTop - body.offsetTop - 8, behavior:'smooth'});
+}
+const LOCK = '<span class="lk">' + document.querySelector('.clan-lockup').outerHTML + '</span>';
+const STEPS = [
+  {h:'What if everyone using Stan had a <span>Launchpad?</span>', p:'Stan Clan: the launchpad for every creator. A peer network built into Stan, shown here as a working prototype.', go:'onboard', next:'Start the tour'},
+  {h:'Two questions.', p:'Niche and stage. No profile to fill out. Tap an answer on the phone.', go:'onboard'},
+  {h:'Stan knows the rest.', p:'Matched on store data, posting rhythm and time zone. Data Stan already has.', go:'match'},
+  {h:'Your cohort.', p:'Twelve creators at your exact stage, right next to your store. Tap anyone to meet them.', go:'home', scroll:'s-home'},
+  {h:'Weekly challenges.', p:'Every clan gets a challenge. Post your offer three times, launch by Friday. Do it together.', go:'home', scroll:'challenge'},
+  {h:'Comment and collab.', p:'Creators give feedback on each other&#39;s posts and team up on collabs and swaps.', go:'home', scroll:'feedback-lbl'},
+  {h:'Drop into office hours.', p:'Live rooms hosted by peers. Listen first, raise your hand when you&#39;re ready.', go:'room'},
+  {h:'Share the win.', p:'Your first sale goes to Demo Friday, and your cohort cheers. Try it from the Store tab.', go:'store'},
+  {h:'Stan Clan. <span>The launchpad for every creator.</span>', p:'I&#39;m sharing this because I think it would be really cool if Stan built it. Keep tapping around the phone.', go:null, next:'Start over'}
 ];
-let lastTouch = 0, lastDriven = null;
-$('#host').addEventListener('pointerdown', () => { lastTouch = Date.now(); });
-function renderFlow(){
-  $('#flow').innerHTML = CH.map((c,i) => `<section class="sec" data-i="${i}"${c.screen?` data-screen="${c.screen}"`:''}>${c.html}${c.screen?`<div class="sec-foot"><button class="try" data-try="${c.screen}">${esc(c.cta)}</button></div>`:''}</section>`).join('');
-  $$('#flow [data-try]').forEach(b => b.addEventListener('click', () => { lastDriven = b.dataset.try; driveTo(b.dataset.try); }));
-  $$('#flow [data-pgo]').forEach(b => b.addEventListener('click', () => driveTo(b.dataset.pgo)));
+let step = 0;
+function renderBars(){
+  $('#bars').innerHTML = STEPS.map((_,i)=>`<button class="${i<=step?'on':''}" aria-label="Step ${i+1}" aria-selected="${i===step}" data-s="${i}"></button>`).join('');
+  $$('#bars [data-s]').forEach(b => b.addEventListener('click', () => setStep(+b.dataset.s)));
 }
-function driveTo(s){
-  if (s === 'onboard'){ startOnboarding(); return; }
-  answered = true; inRoom = null; go(s);
+function setStep(i){
+  if (i >= STEPS.length) i = 0;
+  if (i < 0) i = 0;
+  step = i; const st = STEPS[i];
+  $('#step-n').innerHTML = `${String(i+1).padStart(2,'0')} <span>/ ${String(STEPS.length).padStart(2,'0')}</span>`;
+  const h = $('#step-h'), p = $('#step-p');
+  h.innerHTML = st.h; p.innerHTML = st.p;
+  [h,p].forEach(el => { el.classList.remove('fade'); void el.offsetWidth; el.classList.add('fade'); });
+  $('#prev').disabled = i === 0;
+  $('#next').textContent = st.next || 'Next';
+  renderBars();
+  if (st.go){
+    if (st.go === 'onboard'){ if (screen !== 'onboard' || i === 0) startOnboarding(); }
+    else if (screen !== st.go || st.go === 'room'){ answered = true; inRoom = null; go(st.go); }
+    if (st.scroll) setTimeout(() => scrollPhoneTo(st.scroll), 80);
+  }
 }
+$('#next').addEventListener('click', () => { if (step === STEPS.length-1){ resetAll(); setStep(0); } else setStep(step+1); });
+$('#prev').addEventListener('click', () => setStep(step-1));
+document.addEventListener('keydown', e => {
+  if (e.target.closest('input,textarea')) return;
+  if (e.key === 'ArrowRight') setStep(Math.min(step+1, STEPS.length-1));
+  if (e.key === 'ArrowLeft') setStep(step-1);
+});
+function resetAll(){ winsAdded = []; claps = {}; chIn = false; collabs = {}; comments = {}; joined = new Set(['$0–1K/mo Club','First Product Launch','Weeknight Builders']); }
 function syncChapter(){}
-renderFlow();
-if ('IntersectionObserver' in window && window.matchMedia('(min-width: 961px)').matches){
-  const io = new IntersectionObserver(entries => entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    const scr = e.target.dataset.screen;
-    if (!scr || scr === lastDriven || Date.now() - lastTouch < 5000) return;
-    lastDriven = scr; driveTo(scr);
-  }), {rootMargin:'-45% 0px -45% 0px'});
-  $$('#flow .sec').forEach(sec => io.observe(sec));
+setStep(0);
+
+const intro = document.getElementById('intro');
+if (intro){
+  const done = () => intro.remove();
+  intro.addEventListener('animationend', e => { if (e.animationName === 'introOut') done(); });
+  intro.addEventListener('click', done);
+  setTimeout(done, 4000);
 }
-startOnboarding();
 })();
 </script>
 

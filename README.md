@@ -2,6 +2,8 @@
 
 **What if everyone using Stan had a Launchpad?**
 
+Stan Clan: the launchpad for every creator.
+
 Live: https://nweinberg97.github.io/Stan-Clan/
 
 ![Stan Clan walkthrough](assets/stan-clan-demo.gif)
@@ -12,9 +14,11 @@ Open `index.html` in a browser, or turn on GitHub Pages for this repo (Settings 
 
 ## What's in the prototype
 
-- **Deck tour**: eight chapters from the proposal (the problem, who it's for, matching, your cohort, drop-in, why Stan, three pillars, how it ships). Each chapter drives the phone.
+- **Guided tour**: nine steps with Next/Back (or arrow keys). Each step drives the phone. Opens with the Stan logo turning into the Stan Clan logo.
 - **Matching**: two-question onboarding, then a matching screen built from data Stan already has.
-- **Cohort home**: live office hours, member profiles with headshots, and Demo Friday wins you can post and cheer.
+- **Cohort home**: live office hours, member profiles with headshots, Demo Friday wins you can post and cheer.
+- **Weekly challenges**: a shared challenge each week with progress across the clan.
+- **Comment and collab**: peers give feedback on each other's posts and send collab requests.
 - **Office hours room**: live captions, chat, reactions, raise your hand to speak.
 - **Clan directory**: 15 clans with filters; join up to three.
 - **Stanley and Store tabs**: both hand off to the cohort.
