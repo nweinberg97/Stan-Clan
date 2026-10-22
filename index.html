@@ -62,6 +62,15 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
 .why .src{margin:0;font-size:12.5px;color:var(--muted)}
 .disclaimer.foot{margin-top:18px;max-width:70ch}
 /* challenge + feedback in the phone */
+.fi-img{display:block;height:118px;border-radius:12px;background-size:cover;background-position:center;position:relative;overflow:hidden}
+.fi-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(10,10,40,.55))}
+.fi-img em{position:absolute;left:10px;bottom:8px;z-index:1;color:#fff;font-style:normal;font-size:11.5px;font-weight:700}
+.fi-faces{display:flex}
+.fi-faces .av{width:30px;height:30px;border:2px solid var(--surface)}
+.fi-faces .av+.av{margin-left:-8px}
+.ch-cover{height:92px;margin:-14px -14px 0;border-radius:16px 16px 0 0;background:#6355FF center/cover;position:relative;overflow:hidden}
+.ch-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(99,85,255,.15),rgba(40,30,140,.65))}
+.ch-cover span{position:absolute;left:12px;bottom:9px;z-index:1;color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 .challenge .ch-top{display:flex;flex-direction:column;gap:3px}
 .ch-badge{align-self:flex-start;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--teal);color:var(--teal-ink);padding:3px 8px;border-radius:999px}
 .challenge b{font-size:15px}
@@ -171,7 +180,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
 .clan-lockup .wm b{color:var(--purple)}
 .logo-disc{width:54px;height:54px;margin:0 auto 10px;border-radius:50%;box-shadow:0 6px 18px rgba(10,0,80,.25);overflow:hidden;background:#fff}
 .logo-disc svg,.logo-disc img{width:100%;height:100%;display:block}
-.logo-disc.plain{background:none}
+.logo-disc.plain{background:none;box-shadow:0 0 0 3px rgba(255,255,255,.92),0 6px 18px rgba(10,0,80,.25)}
 .mascot-disc{width:64px;height:64px;margin:0 auto 8px;border-radius:50%;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(10,0,80,.25)}
 .mascot-disc img{width:100%;height:100%;object-fit:cover;transform:scale(1.15)}
 .tab .ti{width:24px;height:24px;border-radius:50%;object-fit:cover;filter:grayscale(1);opacity:.6;display:block}
@@ -226,7 +235,9 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
 
 .card{background:var(--surface);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:12px}
 .live-row{display:flex;gap:12px;align-items:center}
-.live-ico{width:44px;height:44px;border-radius:12px;background:var(--purple);display:grid;place-items:center;flex:none;grid-auto-flow:column}
+.live-ico{width:56px;height:56px;border-radius:14px;background:#4A3DE0 center/cover url(assets/photos/call.jpg);display:grid;place-items:end center;padding-bottom:7px;flex:none;grid-auto-flow:column;position:relative;overflow:hidden}
+.live-ico::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(40,30,140,.05),rgba(40,30,140,.7))}
+.live-ico i{position:relative;z-index:1}
 .live-ico i{width:4px;border-radius:2px;background:#fff;margin:0 1.5px;animation:eq 1s infinite ease-in-out}
 .live-ico i:nth-child(1){height:12px}.live-ico i:nth-child(2){height:20px;animation-delay:.2s}.live-ico i:nth-child(3){height:14px;animation-delay:.4s}
 @keyframes eq{0%,100%{transform:scaleY(.5)}50%{transform:scaleY(1)}}
@@ -277,7 +288,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
 .mini.p{background:var(--purple);color:var(--on-purple)}
 .bridge{border:2px dashed var(--purple)}
 .prod{display:flex;align-items:center;gap:12px;background:var(--surface);border-radius:14px;padding:12px 14px;font-size:13.5px;font-weight:700;width:100%}
-.prod .sw{width:34px;height:34px;border-radius:9px;flex:none}
+.prod .sw{width:52px;height:52px;border-radius:12px;flex:none;background-size:cover;background-position:center}
 .prod .grow{flex:1}
 .prod .grow small{display:block;color:var(--muted);font-weight:500;font-size:12px}
 .prod .pr{color:var(--purple);font-variant-numeric:tabular-nums}
@@ -445,6 +456,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
             </div>
             <div class="lbl">This week&#39;s challenge</div>
             <div class="card challenge" id="challenge">
+              <div class="ch-cover" id="ch-cover"><span>Season 1 · Week 2</span></div>
               <div class="ch-top"><span class="ch-badge">Week 2</span><b>Post your offer 3 times</b><small>Ends Friday · finishers get featured at Demo Friday</small></div>
               <div class="ch-bar"><i id="ch-fill" style="width:66%"></i></div>
               <div class="ch-row"><div class="faces" id="ch-faces"></div><small id="ch-count">8 of 12 are in</small></div>
@@ -520,10 +532,10 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
             <h2>Stanley</h2><div class="sub">How you grow · replied while you slept</div></div>
           <div class="body">
             <div class="lbl">Overnight</div>
-            <div class="feed-item"><b>Replied to 14 comments overnight</b><small>All in your voice. 2 need you.</small><div class="acts"><button class="mini" data-toast="Stanley would show the 2 comments here.">Review 2</button></div></div>
-            <div class="feed-item"><b>Flagged 2 brand deals in your DMs</b><small>One looks like a fit for your audience.</small><div class="acts"><button class="mini" data-toast="Stanley would open the brand deal here.">Open</button></div></div>
+            <div class="feed-item"><span class="fi-img" style="background-image:url(assets/photos/fitness.jpg)"><em>Reel · 14 replies</em></span><b>Replied to 14 comments overnight</b><small>All in your voice. 2 need you.</small><div class="acts"><button class="mini" data-toast="Stanley would show the 2 comments here.">Review 2</button></div></div>
+            <div class="feed-item"><span class="fi-img" style="background-image:url(assets/photos/brand.jpg)"><em>Brand deal · skincare</em></span><b>Flagged 2 brand deals in your DMs</b><small>One looks like a fit for your audience.</small><div class="acts"><button class="mini" data-toast="Stanley would open the brand deal here.">Open</button></div></div>
             <div class="lbl">Where Clan plugs in</div>
-            <div class="feed-item bridge"><b>3 people in your cohort priced a program this week</b><small>Stanley can draft a post. Your cohort can tell you if the price is right.</small>
+            <div class="feed-item bridge"><span class="fi-faces" id="bridge-faces"></span><b>3 people in your cohort priced a program this week</b><small>Stanley can draft a post. Your cohort can tell you if the price is right.</small>
               <div class="acts"><button class="mini p" data-go="home">Ask my cohort</button><button class="mini" data-go="room">Drop into office hours</button></div></div>
           </div>
         </div>
@@ -534,10 +546,10 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
             <h2>Your Store</h2><div class="sub">How you monetize</div></div>
           <div class="body">
             <div class="kpis"><div class="kpi"><b>$203</b><small>This month</small></div><div class="kpi"><b>3</b><small>Sales</small></div><div class="kpi"><b>41</b><small>Visits</small></div></div>
-            <button class="prod" data-toast="Product editing lives in the real Stan Store."><span class="sw" style="background:#6A5AE6"></span><span class="grow">My Creator Course<small>1 sale</small></span><span class="pr">$129</span></button>
-            <button class="prod" data-toast="Product editing lives in the real Stan Store."><span class="sw" style="background:#2FAE84"></span><span class="grow">1:1 Coaching Session<small>1 sale</small></span><span class="pr">$49</span></button>
-            <button class="prod" data-toast="Product editing lives in the real Stan Store."><span class="sw" style="background:#1E1F45"></span><span class="grow">Digital Guide<small>1 sale</small></span><span class="pr">$25</span></button>
-            <div class="feed-item bridge"><b>You made a sale today</b><small>The first ones are worth celebrating. Your cohort will want to know.</small>
+            <button class="prod" data-toast="Product editing lives in the real Stan Store."><span class="sw" style="background-color:#6A5AE6;background-image:url(assets/photos/prod-course.jpg)"></span><span class="grow">My Creator Course<small>1 sale</small></span><span class="pr">$129</span></button>
+            <button class="prod" data-toast="Product editing lives in the real Stan Store."><span class="sw" style="background-color:#2FAE84;background-image:url(assets/photos/prod-coaching.jpg)"></span><span class="grow">1:1 Coaching Session<small>1 sale</small></span><span class="pr">$49</span></button>
+            <button class="prod" data-toast="Product editing lives in the real Stan Store."><span class="sw" style="background-color:#1E1F45;background-image:url(assets/photos/prod-guide.jpg)"></span><span class="grow">Digital Guide<small>1 sale</small></span><span class="pr">$25</span></button>
+            <div class="feed-item bridge"><span class="fi-img" style="background-image:url(assets/photos/prod-coaching.jpg)"><em>1:1 Coaching Session · $49</em></span><b>You made a sale today</b><small>The first ones are worth celebrating. Your cohort will want to know.</small>
               <div class="acts"><button class="mini p" id="store-share">Share at Demo Friday</button></div></div>
           </div>
         </div>
@@ -634,7 +646,7 @@ const UNSPLASH = {
   call:['1781606989379-5c62ed674c41','Detail .co']
 };
 const photo = (k) => `assets/photos/${k}.jpg`;
-const CLAN_PHOTO = {'$0–1K/mo Club':'other','First Product Launch':'fitness','Weeknight Builders':'call','Newsletter Writers':'newsletter','Pre-launch Crew':'newsletter','Recipe Creators':'food','$1–5K/mo Club':'other','Template Sellers':'design','Parents Who Create':'food','Podcast Starters':'call','Faceless Content':'design','Course Builders':'design','Side-Hustle Mornings':'newsletter','Pacific Night Owls':'call'};
+const CLAN_PHOTO = {'$0–1K/mo Club':'money','First Product Launch':'launch','Weeknight Builders':'night','Newsletter Writers':'newsletter','Pre-launch Crew':'latte','Recipe Creators':'food','$1–5K/mo Club':'gear','Template Sellers':'design','Parents Who Create':'other','Podcast Starters':'podcast','Faceless Content':'call','Course Builders':'coursebuild','Side-Hustle Mornings':'morning','Pacific Night Owls':'latenight'};
 const overlay = 'linear-gradient(160deg,rgba(99,85,255,.88),rgba(52,40,190,.94))';
 const CLANS = [
   {n:'$0–1K/mo Club',cat:'Revenue',on:5,m:14,d:'Everyone here is working toward their first $1K month. Weekly revenue check-ins, no judgment.',topic:'What got you your first $100'},
@@ -677,7 +689,7 @@ function go(id, opts={}){
   $('#tabs').hidden = !TABBED.includes(id);
   $$('.tab').forEach(t => t.classList.toggle('on', t.dataset.tab === id || (t.dataset.tab==='home' && (id==='dir'||id==='clan'))));
   closeSheet();
-  ({onboard:()=>{}, match:renderMatch, home:renderHome, dir:renderDir, clan:renderClan, room:renderRoom, stanley:()=>{}, store:()=>{}}[id] || (()=>{}))();
+  ({onboard:()=>{}, match:renderMatch, home:renderHome, dir:renderDir, clan:renderClan, room:renderRoom, stanley:()=>{ $('#bridge-faces').innerHTML = NICHES[niche].people.slice(0,3).map((p,i)=>avHtml(p[0],i)).join(''); }, store:()=>{}}[id] || (()=>{}))();
   if (!opts.noSync) syncChapter(id);
 }
 function back(){ const prev = history.pop() || 'home'; go(prev, {noHistory:true}); }
@@ -919,6 +931,8 @@ const FEED = {
 let chIn = false, collabs = {}, comments = {};
 function renderChallenge(){
   const N = NICHES[niche];
+  $('#ch-cover').style.backgroundImage = `url(${photo(niche)})`;
+  $('#bridge-faces').innerHTML = N.people.slice(0,3).map((p,i)=>avHtml(p[0],i)).join('');
   $('#ch-faces').innerHTML = N.people.slice(0,5).map((p,i)=>avHtml(p[0],i)).join('') + (chIn ? YOU_AV : '');
   $('#ch-count').textContent = `${chIn?9:8} of 12 are in`;
   $('#ch-fill').style.width = chIn ? '75%' : '66%';
